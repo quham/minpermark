@@ -10,12 +10,12 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
     // MARK: - Shared Constants
     // Note: These constants must stay in sync with Constants.swift in the main app
     private enum SharedConstants {
-        static let groupIdentifier = "group.com.goalscroll.settings"
+        static let groupIdentifier = "group.com.mathscroll.settings"
         static let selectionKey = "ScreenTimeAppSelection"
         static let expiryKey = "unlockExpiryDate"
         static let startKey = "unlockStartDate"
         static let pendingDeductionKey = "pendingMinuteDeduction"
-        static let unlockSessionIdentifier = "com.goalscroll.unlockSession"
+        static let unlockSessionIdentifier = "com.mathscroll.unlockSession"
     }
 
     // MARK: - Properties
@@ -29,7 +29,7 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
 
     override func intervalDidStart(for activity: DeviceActivityName) {
         super.intervalDidStart(for: activity)
-        print("[GoalScrollMonitor] intervalDidStart for: \(activity.rawValue)")
+        print("[MathScrollMonitor] intervalDidStart for: \(activity.rawValue)")
 
         guard activity == .unlockSession else { return }
 
@@ -39,17 +39,17 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
         clearUnlockExpiry()
         reapplyShields()
         DeviceActivityCenter().stopMonitoring([activity])
-        print("[GoalScrollMonitor] Break over. Apps re-locked.")
+        print("[MathScrollMonitor] Break over. Apps re-locked.")
     }
 
     override func intervalWillEndWarning(for activity: DeviceActivityName) {
         super.intervalWillEndWarning(for: activity)
-        print("[GoalScrollMonitor] intervalWillEndWarning for: \(activity.rawValue)")
+        print("[MathScrollMonitor] intervalWillEndWarning for: \(activity.rawValue)")
     }
 
     override func intervalDidEnd(for activity: DeviceActivityName) {
         super.intervalDidEnd(for: activity)
-        print("[GoalScrollMonitor] intervalDidEnd for: \(activity.rawValue)")
+        print("[MathScrollMonitor] intervalDidEnd for: \(activity.rawValue)")
         if activity == .unlockSession {
             // Calculate minutes used and save for main app to deduct (backup)
             calculateAndSavePendingDeduction()
@@ -72,7 +72,7 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
             let minutesUsed = min(calculatedMinutes, selectedMinutes)
 
             sharedDefaults?.set(minutesUsed, forKey: pendingDeductionKey)
-            print("[GoalScrollMonitor] Saved pending deduction: \(minutesUsed) minutes (selected: \(selectedMinutes))")
+            print("[MathScrollMonitor] Saved pending deduction: \(minutesUsed) minutes (selected: \(selectedMinutes))")
         }
     }
 
@@ -80,7 +80,7 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
         let sharedDefaults = UserDefaults(suiteName: groupIdentifier)
         sharedDefaults?.removeObject(forKey: expiryKey)
         sharedDefaults?.removeObject(forKey: startKey)
-        print("[GoalScrollMonitor] Cleared unlock expiry and start dates")
+        print("[MathScrollMonitor] Cleared unlock expiry and start dates")
     }
 
     private func reapplyShields() {
@@ -88,7 +88,7 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
 
         guard let data = sharedDefaults?.data(forKey: selectionKey),
               let selection = try? PropertyListDecoder().decode(FamilyActivitySelection.self, from: data) else {
-            print("[GoalScrollMonitor] No selection data found, skipping shield reapply")
+            print("[MathScrollMonitor] No selection data found, skipping shield reapply")
             return
         }
 
@@ -102,7 +102,7 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
             ? nil
             : ShieldSettings.ActivityCategoryPolicy.specific(selection.categoryTokens)
 
-        print("[GoalScrollMonitor] Shields reapplied - apps: \(selection.applicationTokens.count), categories: \(selection.categoryTokens.count), webDomains: \(selection.webDomainTokens.count)")
+        print("[MathScrollMonitor] Shields reapplied - apps: \(selection.applicationTokens.count), categories: \(selection.categoryTokens.count), webDomains: \(selection.webDomainTokens.count)")
     }
 }
 
@@ -110,5 +110,5 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
 
 extension DeviceActivityName {
     // Note: Must stay in sync with Constants.DeviceActivity.unlockSessionIdentifier in main app
-    static let unlockSession = DeviceActivityName("com.goalscroll.unlockSession")
+    static let unlockSession = DeviceActivityName("com.mathscroll.unlockSession")
 }

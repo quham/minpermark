@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 
 @main
-struct GoalScrollApp: App {
+struct MathScrollApp: App {
     @State private var appState = AppState()
     @State private var verificationStore = VerificationStore()
     @State private var notificationManager = NotificationManager.shared

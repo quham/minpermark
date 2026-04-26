@@ -5,7 +5,7 @@ final class ShieldSharedStore {
     static let shared = ShieldSharedStore()
 
     private enum Shared {
-        static let appGroupIdentifier = "group.com.goalscroll.settings"
+        static let appGroupIdentifier = "group.com.mathscroll.settings"
         static let whyKey = "shield_why"
         static let goalTitleKey = "shield_goal_title"
         static let iconFilename = "shield-icon.png"

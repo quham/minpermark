@@ -5,7 +5,7 @@ import os.log
 // MARK: - Logging
 
 enum Log {
-    private static let subsystem = Bundle.main.bundleIdentifier ?? "com.goalscroll"
+    private static let subsystem = Bundle.main.bundleIdentifier ?? "com.mathscroll"
 
     static let data = Logger(subsystem: subsystem, category: "data")
     static let ui = Logger(subsystem: subsystem, category: "ui")

@@ -6,7 +6,7 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.goalscroll.settings</string>
+		<string>group.com.mathscroll.settings</string>
 	</array>
 </dict>
 </plist>

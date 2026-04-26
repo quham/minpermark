@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		000000000000000000000001 /* GoalScrollApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000001 /* GoalScrollApp.swift */; };
+		000000000000000000000001 /* MathScrollApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000001 /* MathScrollApp.swift */; };
 		000000000000000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000002 /* ContentView.swift */; };
 		000000000000000000000003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000003 /* Assets.xcassets */; };
 		000000000000000000000004 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000004 /* Preview Assets.xcassets */; };
@@ -44,7 +44,7 @@
 		000000000000000000000035 /* ProofCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000035 /* ProofCaptureView.swift */; };
 		000000000000000000000036 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000036 /* SettingsView.swift */; };
 		000000000000000000000038 /* ShieldConfigurationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000038 /* ShieldConfigurationExtension.swift */; };
-		000000000000000000000039 /* GoalScrollShield.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 200000000000000000000002 /* GoalScrollShield.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		000000000000000000000039 /* MathScrollShield.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 200000000000000000000002 /* MathScrollShield.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		000000000000000000000040 /* ShieldSharedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000040 /* ShieldSharedStore.swift */; };
 		000000000000000000000041 /* GoalRewardAllocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000041 /* GoalRewardAllocator.swift */; };
 		000000000000000000000042 /* NamePromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000042 /* NamePromptView.swift */; };
@@ -73,7 +73,7 @@
 		869C15CD2F3636C600E87483 /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 869C15CC2F3636C600E87483 /* PostgREST */; };
 		869C15CF2F363D2F00E87483 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 869C15CE2F363D2F00E87483 /* Secrets.xcconfig */; };
 		910000000000000000000001 /* DeviceActivityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910000000000000000000003 /* DeviceActivityMonitor.swift */; };
-		910000000000000000000002 /* GoalScrollMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 910000000000000000000006 /* GoalScrollMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		910000000000000000000002 /* MathScrollMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 910000000000000000000006 /* MathScrollMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -83,8 +83,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				000000000000000000000039 /* GoalScrollShield.appex in Embed Foundation Extensions */,
-				910000000000000000000002 /* GoalScrollMonitor.appex in Embed Foundation Extensions */,
+				000000000000000000000039 /* MathScrollShield.appex in Embed Foundation Extensions */,
+				910000000000000000000002 /* MathScrollMonitor.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,7 +92,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		100000000000000000000001 /* GoalScrollApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalScrollApp.swift; sourceTree = "<group>"; };
+		100000000000000000000001 /* MathScrollApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathScrollApp.swift; sourceTree = "<group>"; };
 		100000000000000000000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		100000000000000000000003 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		100000000000000000000004 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -152,15 +152,15 @@
 		869C15D42F3636C600E87483 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		869C15D62F3636C600E87483 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		869C15D82F3636C600E87483 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		200000000000000000000001 /* GoalScroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoalScroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		200000000000000000000002 /* GoalScrollShield.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GoalScrollShield.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		200000000000000000000001 /* MathScroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathScroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		200000000000000000000002 /* MathScrollShield.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MathScrollShield.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		869C15CE2F363D2F00E87483 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
-		86AC3DFC2F186A6B00144B24 /* GoalScroll.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoalScroll.entitlements; sourceTree = "<group>"; };
-		86AC3EA82F19BC8F00144B24 /* GoalScrollShield.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoalScrollShield.entitlements; sourceTree = "<group>"; };
+		86AC3DFC2F186A6B00144B24 /* MathScroll.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MathScroll.entitlements; sourceTree = "<group>"; };
+		86AC3EA82F19BC8F00144B24 /* MathScrollShield.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MathScrollShield.entitlements; sourceTree = "<group>"; };
 		910000000000000000000003 /* DeviceActivityMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitor.swift; sourceTree = "<group>"; };
 		910000000000000000000004 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		910000000000000000000005 /* GoalScrollMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoalScrollMonitor.entitlements; sourceTree = "<group>"; };
-		910000000000000000000006 /* GoalScrollMonitor.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GoalScrollMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		910000000000000000000005 /* MathScrollMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MathScrollMonitor.entitlements; sourceTree = "<group>"; };
+		910000000000000000000006 /* MathScrollMonitor.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MathScrollMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,19 +195,19 @@
 		400000000000000000000001 = {
 			isa = PBXGroup;
 			children = (
-				400000000000000000000002 /* GoalScroll */,
-				400000000000000000000016 /* GoalScrollShield */,
-				910000000000000000000008 /* GoalScrollMonitor */,
+				400000000000000000000002 /* MathScroll */,
+				400000000000000000000016 /* MathScrollShield */,
+				910000000000000000000008 /* MathScrollMonitor */,
 				400000000000000000000003 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		400000000000000000000002 /* GoalScroll */ = {
+		400000000000000000000002 /* MathScroll */ = {
 			isa = PBXGroup;
 			children = (
-				86AC3DFC2F186A6B00144B24 /* GoalScroll.entitlements */,
+				86AC3DFC2F186A6B00144B24 /* MathScroll.entitlements */,
 				869C15CE2F363D2F00E87483 /* Secrets.xcconfig */,
-				100000000000000000000001 /* GoalScrollApp.swift */,
+				100000000000000000000001 /* MathScrollApp.swift */,
 				100000000000000000000002 /* ContentView.swift */,
 				400000000000000000000004 /* Models */,
 				400000000000000000000005 /* Views */,
@@ -217,15 +217,15 @@
 				100000000000000000000003 /* Assets.xcassets */,
 				400000000000000000000009 /* Preview Content */,
 			);
-			path = GoalScroll;
+			path = MathScroll;
 			sourceTree = "<group>";
 		};
 		400000000000000000000003 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				200000000000000000000001 /* GoalScroll.app */,
-				200000000000000000000002 /* GoalScrollShield.appex */,
-				910000000000000000000006 /* GoalScrollMonitor.appex */,
+				200000000000000000000001 /* MathScroll.app */,
+				200000000000000000000002 /* MathScrollShield.appex */,
+				910000000000000000000006 /* MathScrollMonitor.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -383,14 +383,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		400000000000000000000016 /* GoalScrollShield */ = {
+		400000000000000000000016 /* MathScrollShield */ = {
 			isa = PBXGroup;
 			children = (
-				86AC3EA82F19BC8F00144B24 /* GoalScrollShield.entitlements */,
+				86AC3EA82F19BC8F00144B24 /* MathScrollShield.entitlements */,
 				100000000000000000000038 /* ShieldConfigurationExtension.swift */,
 				100000000000000000000039 /* Info.plist */,
 			);
-			path = GoalScrollShield;
+			path = MathScrollShield;
 			sourceTree = "<group>";
 		};
 		400000000000000000000017 /* Review */ = {
@@ -401,22 +401,22 @@
 			path = Review;
 			sourceTree = "<group>";
 		};
-		910000000000000000000008 /* GoalScrollMonitor */ = {
+		910000000000000000000008 /* MathScrollMonitor */ = {
 			isa = PBXGroup;
 			children = (
-				910000000000000000000005 /* GoalScrollMonitor.entitlements */,
+				910000000000000000000005 /* MathScrollMonitor.entitlements */,
 				910000000000000000000003 /* DeviceActivityMonitor.swift */,
 				910000000000000000000004 /* Info.plist */,
 			);
-			path = GoalScrollMonitor;
+			path = MathScrollMonitor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		500000000000000000000001 /* GoalScroll */ = {
+		500000000000000000000001 /* MathScroll */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 600000000000000000000001 /* Build configuration list for PBXNativeTarget "GoalScroll" */;
+			buildConfigurationList = 600000000000000000000001 /* Build configuration list for PBXNativeTarget "MathScroll" */;
 			buildPhases = (
 				500000000000000000000002 /* Sources */,
 				300000000000000000000001 /* Frameworks */,
@@ -427,14 +427,14 @@
 			);
 			dependencies = (
 			);
-			name = GoalScroll;
-			productName = GoalScroll;
-			productReference = 200000000000000000000001 /* GoalScroll.app */;
+			name = MathScroll;
+			productName = MathScroll;
+			productReference = 200000000000000000000001 /* MathScroll.app */;
 			productType = "com.apple.product-type.application";
 		};
-		500000000000000000000004 /* GoalScrollShield */ = {
+		500000000000000000000004 /* MathScrollShield */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 600000000000000000000003 /* Build configuration list for PBXNativeTarget "GoalScrollShield" */;
+			buildConfigurationList = 600000000000000000000003 /* Build configuration list for PBXNativeTarget "MathScrollShield" */;
 			buildPhases = (
 				500000000000000000000005 /* Sources */,
 				300000000000000000000002 /* Frameworks */,
@@ -444,14 +444,14 @@
 			);
 			dependencies = (
 			);
-			name = GoalScrollShield;
-			productName = GoalScrollShield;
-			productReference = 200000000000000000000002 /* GoalScrollShield.appex */;
+			name = MathScrollShield;
+			productName = MathScrollShield;
+			productReference = 200000000000000000000002 /* MathScrollShield.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		910000000000000000000009 /* GoalScrollMonitor */ = {
+		910000000000000000000009 /* MathScrollMonitor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 910000000000000000000010 /* Build configuration list for PBXNativeTarget "GoalScrollMonitor" */;
+			buildConfigurationList = 910000000000000000000010 /* Build configuration list for PBXNativeTarget "MathScrollMonitor" */;
 			buildPhases = (
 				910000000000000000000012 /* Sources */,
 				910000000000000000000007 /* Frameworks */,
@@ -461,9 +461,9 @@
 			);
 			dependencies = (
 			);
-			name = GoalScrollMonitor;
-			productName = GoalScrollMonitor;
-			productReference = 910000000000000000000006 /* GoalScrollMonitor.appex */;
+			name = MathScrollMonitor;
+			productName = MathScrollMonitor;
+			productReference = 910000000000000000000006 /* MathScrollMonitor.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -487,7 +487,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 600000000000000000000002 /* Build configuration list for PBXProject "GoalScroll" */;
+			buildConfigurationList = 600000000000000000000002 /* Build configuration list for PBXProject "MathScroll" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -503,9 +503,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				500000000000000000000001 /* GoalScroll */,
-				500000000000000000000004 /* GoalScrollShield */,
-				910000000000000000000009 /* GoalScrollMonitor */,
+				500000000000000000000001 /* MathScroll */,
+				500000000000000000000004 /* MathScrollShield */,
+				910000000000000000000009 /* MathScrollMonitor */,
 			);
 		};
 /* End PBXProject section */
@@ -543,7 +543,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				000000000000000000000002 /* ContentView.swift in Sources */,
-				000000000000000000000001 /* GoalScrollApp.swift in Sources */,
+				000000000000000000000001 /* MathScrollApp.swift in Sources */,
 				000000000000000000000005 /* Goal.swift in Sources */,
 				000000000000000000000006 /* CompletionRecord.swift in Sources */,
 				000000000000000000000007 /* ProofItem.swift in Sources */,
@@ -673,7 +673,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -731,7 +731,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -745,21 +745,21 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 869C15CE2F363D2F00E87483 /* Secrets.xcconfig */;
 			buildSettings = {
-				APP_BUNDLE_ID = com.goalscroll.app;
+				APP_BUNDLE_ID = com.mathscroll.app;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = GoalScroll/GoalScroll.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MathScroll/MathScroll.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"GoalScroll/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MathScroll/Preview Content\"";
 				DEVELOPMENT_TEAM = HPCP7LQ7G4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GoalScroll/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = GoalScroll;
+				INFOPLIST_FILE = MathScroll/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MathScroll;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
-				INFOPLIST_KEY_NSCameraUsageDescription = "GoalScroll needs camera access to capture proof photos for your habits.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "GoalScroll needs photo library access to upload screenshots as proof.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "MathScroll needs camera access to capture proof photos for your habits.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "MathScroll needs photo library access to upload screenshots as proof.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -782,21 +782,21 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 869C15CE2F363D2F00E87483 /* Secrets.xcconfig */;
 			buildSettings = {
-				APP_BUNDLE_ID = com.goalscroll.app;
+				APP_BUNDLE_ID = com.mathscroll.app;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = GoalScroll/GoalScroll.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MathScroll/MathScroll.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"GoalScroll/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MathScroll/Preview Content\"";
 				DEVELOPMENT_TEAM = HPCP7LQ7G4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GoalScroll/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = GoalScroll;
+				INFOPLIST_FILE = MathScroll/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MathScroll;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
-				INFOPLIST_KEY_NSCameraUsageDescription = "GoalScroll needs camera access to capture proof photos for your habits.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "GoalScroll needs photo library access to upload screenshots as proof.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "MathScroll needs camera access to capture proof photos for your habits.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "MathScroll needs photo library access to upload screenshots as proof.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -819,14 +819,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				APP_BUNDLE_ID = com.goalscroll.app;
-				CODE_SIGN_ENTITLEMENTS = GoalScrollShield/GoalScrollShield.entitlements;
+				APP_BUNDLE_ID = com.mathscroll.app;
+				CODE_SIGN_ENTITLEMENTS = MathScrollShield/MathScrollShield.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HPCP7LQ7G4;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = GoalScrollShield/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).GoalScrollShield";
+				INFOPLIST_FILE = MathScrollShield/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).MathScrollShield";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -837,14 +837,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				APP_BUNDLE_ID = com.goalscroll.app;
-				CODE_SIGN_ENTITLEMENTS = GoalScrollShield/GoalScrollShield.entitlements;
+				APP_BUNDLE_ID = com.mathscroll.app;
+				CODE_SIGN_ENTITLEMENTS = MathScrollShield/MathScrollShield.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HPCP7LQ7G4;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = GoalScrollShield/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).GoalScrollShield";
+				INFOPLIST_FILE = MathScrollShield/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).MathScrollShield";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -855,14 +855,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				APP_BUNDLE_ID = com.goalscroll.app;
-				CODE_SIGN_ENTITLEMENTS = GoalScrollMonitor/GoalScrollMonitor.entitlements;
+				APP_BUNDLE_ID = com.mathscroll.app;
+				CODE_SIGN_ENTITLEMENTS = MathScrollMonitor/MathScrollMonitor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HPCP7LQ7G4;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = GoalScrollMonitor/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).GoalScrollMonitor";
+				INFOPLIST_FILE = MathScrollMonitor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).MathScrollMonitor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -873,14 +873,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				APP_BUNDLE_ID = com.goalscroll.app;
-				CODE_SIGN_ENTITLEMENTS = GoalScrollMonitor/GoalScrollMonitor.entitlements;
+				APP_BUNDLE_ID = com.mathscroll.app;
+				CODE_SIGN_ENTITLEMENTS = MathScrollMonitor/MathScrollMonitor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HPCP7LQ7G4;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = GoalScrollMonitor/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).GoalScrollMonitor";
+				INFOPLIST_FILE = MathScrollMonitor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).MathScrollMonitor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -890,7 +890,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		600000000000000000000001 /* Build configuration list for PBXNativeTarget "GoalScroll" */ = {
+		600000000000000000000001 /* Build configuration list for PBXNativeTarget "MathScroll" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				800000000000000000000003 /* Debug */,
@@ -899,7 +899,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		600000000000000000000002 /* Build configuration list for PBXProject "GoalScroll" */ = {
+		600000000000000000000002 /* Build configuration list for PBXProject "MathScroll" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				800000000000000000000001 /* Debug */,
@@ -908,7 +908,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		600000000000000000000003 /* Build configuration list for PBXNativeTarget "GoalScrollShield" */ = {
+		600000000000000000000003 /* Build configuration list for PBXNativeTarget "MathScrollShield" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				800000000000000000000005 /* Debug */,
@@ -917,7 +917,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		910000000000000000000010 /* Build configuration list for PBXNativeTarget "GoalScrollMonitor" */ = {
+		910000000000000000000010 /* Build configuration list for PBXNativeTarget "MathScrollMonitor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				910000000000000000000013 /* Debug */,

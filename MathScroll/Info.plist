@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>GoalScroll</string>
+	<string>MathScroll</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -27,9 +27,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>GoalScroll needs camera access to capture proof photos for your habits.</string>
+	<string>MathScroll needs camera access to capture proof photos for your habits.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>GoalScroll needs photo library access to upload screenshots as proof.</string>
+	<string>MathScroll needs photo library access to upload screenshots as proof.</string>
 	<key>SUPABASE_URL</key>
 	<string>$(SUPABASE_URL)</string>
 	<key>SUPABASE_ANON_KEY</key>

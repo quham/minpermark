@@ -10,7 +10,7 @@ class ShieldConfigurationExtension: ShieldConfigurationDataSource {
     // MARK: - Shared Constants
     // Note: These constants must stay in sync with Constants.swift in the main app
     private enum SharedConstants {
-        static let appGroupIdentifier = "group.com.goalscroll.settings"
+        static let appGroupIdentifier = "group.com.mathscroll.settings"
         static let goalTitleKey = "shield_goal_title"
         static let whyKey = "shield_why"
         static let iconFilename = "shield-icon.png"

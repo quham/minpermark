@@ -3,11 +3,11 @@ import Foundation
 enum Constants {
     // MARK: - App Configuration
     enum App {
-        static let name = "GoalScroll"
+        static let name = "MathScroll"
         static let version = "1.0.0"
-        static let bundleIdentifier = "com.goalscroll.app"
-        static let groupIdentifier = "group.com.goalscroll.settings"
-        static let shareMessage = "I'm using GoalScroll to stay on track."
+        static let bundleIdentifier = "com.mathscroll.app"
+        static let groupIdentifier = "group.com.mathscroll.settings"
+        static let shareMessage = "I'm using MathScroll to stay on track."
     }
 
     // MARK: - Validation
@@ -71,7 +71,7 @@ enum Constants {
 
     // MARK: - DeviceActivity
     enum DeviceActivity {
-        static let unlockSessionIdentifier = "com.goalscroll.unlockSession"
+        static let unlockSessionIdentifier = "com.mathscroll.unlockSession"
     }
 
     // MARK: - Shield Configuration
@@ -148,7 +148,7 @@ enum Constants {
 
     // MARK: - API Configuration (Legacy - kept for reference)
     enum API {
-        static let backendBaseURL = "https://goalscroll1.onrender.com"
+        static let backendBaseURL = "https://mathscroll1.onrender.com"
     }
 
     // MARK: - Supabase Configuration
