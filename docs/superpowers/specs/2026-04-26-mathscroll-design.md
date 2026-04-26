@@ -23,10 +23,12 @@ The product is paywalled: one free question per device, then a subscription.
 ## 3. Question source & question bank
 
 The iOS app reads from a Supabase `questions` table populated by a **separate ingestion pipeline** (PDFs from Edexcel / AQA / OCR → OCR → split → tag → upload). That pipeline is its own spec; this v1 app spec assumes:
+
 - The bank exists.
 - A development seed of ~50 questions covers all three levels and all three boards.
 
 Each `questions` row stores:
+
 - `id`, `board` (edexcel|aqa|ocr), `level` (gcse|as|alevel), `tier` (foundation|higher; gcse only)
 - `paper_year`, `paper_code`, `question_number`
 - `question_image_url`, `mark_scheme_image_url`, `total_marks`
@@ -38,7 +40,8 @@ Question content is **not** persisted in SwiftData. It's fetched from Supabase a
 
 Replaces `Goal` / `CompletionRecord` / `ProofItem`.
 
-**`QuestionAttempt`** (`@Model`)
+`**QuestionAttempt`** (`@Model`)
+
 - `id: UUID`
 - `questionId: String` (Supabase ref)
 - `submittedAt: Date`
@@ -50,7 +53,8 @@ Replaces `Goal` / `CompletionRecord` / `ProofItem`.
 - `secondsSpent: Int`
 - `markingMode: MarkingMode` (ai|selfMark)
 
-**`SkillStat`** (`@Model`)
+`**SkillStat**` (`@Model`)
+
 - `tag: String` (unique per kind)
 - `kind: SkillStatKind` (subtopic|skill)
 - `attemptsCount: Int`
@@ -59,11 +63,13 @@ Replaces `Goal` / `CompletionRecord` / `ProofItem`.
 - `lastAttemptedAt: Date`
 - Recomputed after each attempt.
 
-**`MinutesLedger`** (`@Model`, append-only)
+`**MinutesLedger**` (`@Model`, append-only)
+
 - `entryId: UUID`, `date: Date`, `deltaMinutes: Int`, `source: LedgerSource` (earned|spent|dailyCapAdjustment|manualAdjustment)
 - Balance is `sum(deltaMinutes)`. Daily-cap adjustments are written when a day's earnings are clamped.
 
-**`UserProfile`** (`@Model`, single row)
+`**UserProfile**` (`@Model`, single row)
+
 - `level: ExamLevel` (gcse|as|alevel)
 - `board: ExamBoard` (edexcel|aqa|ocr) — single, not multi
 - `tier: Tier?` (foundation|higher; nil for AS/A-Level)
@@ -78,23 +84,25 @@ Replaces `Goal` / `CompletionRecord` / `ProofItem`.
 
 Mirrors GoalScroll1's `@Observable` pattern (selectively port the cleaner GoalScroll2 patterns called out in `IMPLEMENTATION_COMPARISON.md`).
 
-- **`QuestionBankStore`** — fetches/caches questions from Supabase, applies the recommendation algorithm, exposes `nextQuestion()`.
-- **`SessionStore`** — manages the currently-active question lifecycle (loaded → photographed → submitted → marked → completed).
-- **`MarkingStore`** (renames `VerificationStore`) — orchestrates the Gemini marking call, surfaces loading/error/result states.
-- **`StatsStore`** — recomputes `SkillStat` from attempts; exposes weakness rankings for the Stats screen.
-- **`MinutesStore`** — ledger-backed balance, daily-cap enforcement, integration with `ScreenTimeManager`.
-- **`PaywallStore`** + **`EntitlementsService`** — wraps StoreKit 2; gating check on every `nextQuestion()` call beyond the first.
-- **`AppState`** — onboarding flag, paywall flag, active sheet routing.
+- `**QuestionBankStore**` — fetches/caches questions from Supabase, applies the recommendation algorithm, exposes `nextQuestion()`.
+- `**SessionStore**` — manages the currently-active question lifecycle (loaded → photographed → submitted → marked → completed).
+- `**MarkingStore**` (renames `VerificationStore`) — orchestrates the Gemini marking call, surfaces loading/error/result states.
+- `**StatsStore**` — recomputes `SkillStat` from attempts; exposes weakness rankings for the Stats screen.
+- `**MinutesStore**` — ledger-backed balance, daily-cap enforcement, integration with `ScreenTimeManager`.
+- `**PaywallStore**` + `**EntitlementsService**` — wraps StoreKit 2; gating check on every `nextQuestion()` call beyond the first.
+- `**AppState**` — onboarding flag, paywall flag, active sheet routing.
 
 ## 6. Marking pipeline (`MarkingService`)
 
 Single Gemini Vision call. Inputs:
+
 - Question image (URL or local cache file).
 - Mark scheme image (URL or local cache file).
 - Student's working photo.
 - Structured prompt requesting strict JSON output.
 
 Output schema (validated client-side):
+
 ```json
 {
   "totalAwarded": 4,
@@ -114,11 +122,13 @@ On schema validation failure: retry once with a stricter "respond ONLY with JSON
 ## 7. Recommendation algorithm
 
 `QuestionBankStore.nextQuestion()` picks one question id with these weights:
+
 - **60%** from skills where `recencyWeightedPct < 60%` and `attemptsCount >= 2` (currently weak).
 - **30%** from skills the student has been improving on (spaced review).
 - **10%** from skills not yet attempted (coverage).
 
 Constraints applied as filters before weighting:
+
 - Match user's `board`, `level`, and `tier`.
 - Exclude any `questionId` attempted in the last 30 days.
 - After 5 questions in a row that draw from the same subtopic, force the next pick from a different subtopic to prevent burnout.
@@ -139,17 +149,17 @@ Pre-paywall (free, anonymous):
 1. **Pick level** — GCSE / AS Level / A-Level (single).
 2. **Pick board** — Edexcel / AQA / OCR (single).
 3. **Tier** — Foundation / Higher (GCSE only).
-4. **Answer 1 free question** — full flow: photo capture → Gemini marking → marks breakdown → minutes balance animates from 0 → N.
-5. **Paywall** — "Keep your streak. Unlock unlimited questions and app blocking."
+4. Set **daily cap** (slider, default 120 min).
+5. Pick **apps to block** (Family Controls picker).
+6. **Answer 1 free question** — full flow: photo capture → Gemini marking → marks breakdown → minutes balance animates from 0 → N.
+7. **Paywall** — "Keep your streak. Unlock unlimited questions and app blocking."
 
-Post-paywall (after a successful purchase callback) first-run setup. These screens are mandatory before the user can request a second question; they cannot be dismissed without completion (the diagnostic itself is skippable inside the flow):
+Post-paywall (after a successful purchase callback) first-run setup:
 
-6. Set **daily cap** (slider, default 120 min).
-7. Pick **apps to block** (Family Controls picker).
 8. **Diagnostic** — 5 quick questions across mixed topics to seed the weakness model (skippable with a "Skip diagnostic" link).
 9. **Done** — drops into Home.
 
-Free-tier daily cap and blocked-apps state are unset; the free question's earned minutes are simply displayed without unlocking anything (it's a demo of the loop).
+Free-tier behaviour: daily cap and blocked apps are configured pre-paywall, but earned minutes from the single free question do **not** unlock blocked apps (no entitlement yet). The free question's minute earnings animate into the balance pill purely as a demo of the loop, and the balance is reset on successful purchase before the diagnostic.
 
 ## 10. UI surfaces & visual language (iOS 26 Liquid Glass)
 
@@ -178,9 +188,8 @@ Drop the existing `GradientBackgroundView`. Use the system Liquid Glass material
 - One free question per app install. Tracked locally via `UserProfile.freeQuestionUsed` (single SwiftData row). Reinstalling resets the flag — acceptable for v1; tighter gating (e.g. server-side device fingerprint) is deferred.
 - Paywall triggers when `freeQuestionUsed = true` and `entitlement` is nil/inactive.
 - Subscriptions via **StoreKit 2**:
-  - Weekly: **£4.99**
-  - Monthly: **£19.99** (with 7-day free trial)
-  - Annual: **£79.99**
+  - Monthly: **£9.99** (with 7-day free trial)
+  - Annual: **£39.99**  (with 7-day free trial)
 - Prices are placeholders; tunable via App Store Connect without code changes.
 - `EntitlementsService` exposes `currentEntitlement` and a `refresh()` call after purchase / restore.
 - **Restore Purchases** in Settings.
@@ -190,11 +199,9 @@ Drop the existing `GradientBackgroundView`. Use the system Liquid Glass material
 
 - The PDF ingestion pipeline (separate spec / sub-project).
 - Subjects beyond Maths.
-- Multi-user features, leaderboards, social.
 - Web companion.
 - Offline marking (requires connectivity to Gemini).
 - Family-shared subscriptions.
-- Free-tier history beyond the single free question.
 
 ## 14. Testing
 
@@ -227,3 +234,4 @@ This is a fresh fork, not an in-place rewrite of GoalScroll1. Steps (high level 
 - Apple Family Controls entitlement. **The entitlement is bound to the bundle id**, so the renamed MathScroll bundle id will need a fresh entitlement application to Apple. This can take weeks — file the application as soon as the new bundle id is decided. Until granted, the app must fall back to soft-blocking (timer-only, no real Screen Time enforcement) so TestFlight builds still work.
 - Gemini API key + plan with sufficient quota for vision marking calls.
 - Apple Developer account paywall config (StoreKit products in App Store Connect).
+
