@@ -1,0 +1,2221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoalScroll — Earn Your Scroll Time</title>
+    <meta name="description" content="The first focus app that turns screen time into a reward for personal growth. Complete microhabits, prove it, unlock your apps.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="GoalScroll — Earn Your Scroll Time">
+    <meta property="og:description" content="The first focus app that turns screen time into a reward for personal growth.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://goalscroll.app">
+    <meta property="og:image" content="https://goalscroll.app/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GoalScroll — Earn Your Scroll Time">
+    <meta name="twitter:description" content="The first focus app that turns screen time into a reward for personal growth.">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "GoalScroll",
+        "operatingSystem": "iOS",
+        "applicationCategory": "HealthApplication",
+        "description": "The first focus app that turns screen time into a reward for personal growth.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+    (function() {
+        try {
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light' || savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        } catch (e) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+    </script>
+
+    <style>
+        /* ==================== RESET & BASE ==================== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0A0B0F;
+            --bg-surface: #111218;
+            --bg-card: #111218;
+            --bg-card-hover: #181A24;
+            --bg-input: #111218;
+            --primary: #4A7BF7;
+            --primary-dark: #3A62C4;
+            --primary-light: #6B94F9;
+            --secondary: #6C63FF;
+            --accent: #FF6584;
+            --green: #10B981;
+            --text: #F0F2F5;
+            --text-secondary: #9CA3AF;
+            --text-muted: #6B7280;
+            --border: #1E2030;
+            --error: #EF4444;
+            --warning: #F59E0B;
+            --body-bg: var(--bg);
+            --gradient-text: linear-gradient(135deg, #6B94F9, #10B981);
+            --navbar-scrolled-bg: rgba(10, 11, 15, 0.8);
+            --mobile-menu-bg: rgba(10, 11, 15, 0.95);
+            --hero-orb-opacity: 0.3;
+            --hero-orb-1: #4A7BF7;
+            --hero-orb-2: #10B981;
+            --hero-orb-3: #E8D5E7;
+            --hero-badge-bg: rgba(74, 123, 247, 0.12);
+            --hero-badge-border: rgba(74, 123, 247, 0.25);
+            --hero-badge-text: var(--primary-light);
+            --phone-frame: #1A1B23;
+            --phone-border: #2A2B35;
+            --phone-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+            --phone-screen-bg: linear-gradient(160deg, #111218 0%, #1a1d2e 40%, #0f1923 100%);
+            --phone-icon-gradient: linear-gradient(135deg, #4A7BF7, #10B981);
+            --testimonial-bg: rgba(17, 18, 24, 0.8);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        :root[data-theme="light"] {
+            --bg: #FFFFFF;
+            --bg-surface: #F8F9FA;
+            --bg-card: #FFFFFF;
+            --bg-card-hover: #F7FAFF;
+            --bg-input: #F0F4F8;
+            --text: #2D3142;
+            --text-secondary: #6B7280;
+            --text-muted: #9CA3AF;
+            --border: #E2E8F0;
+            --body-bg: linear-gradient(135deg, #E8D5E7 0%, #D4E5F7 40%, #FFFFFF 100%);
+            --gradient-text: linear-gradient(135deg, #4A7BF7 0%, #00C2FF 100%);
+            --navbar-scrolled-bg: rgba(255, 255, 255, 0.86);
+            --mobile-menu-bg: rgba(255, 255, 255, 0.96);
+            --hero-orb-opacity: 0.45;
+            --hero-orb-1: #7FB5FF;
+            --hero-orb-2: #9CD9FF;
+            --hero-orb-3: #D6ECFF;
+            --hero-badge-bg: rgba(255, 255, 255, 0.82);
+            --hero-badge-border: var(--border);
+            --hero-badge-text: var(--text);
+            --phone-frame: #111111;
+            --phone-border: #000000;
+            --phone-shadow: 0 30px 60px rgba(58, 98, 196, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.08);
+            --phone-screen-bg: linear-gradient(160deg, rgba(74, 123, 247, 0.2) 0%, rgba(108, 99, 255, 0.14) 45%, #ffffff 100%);
+            --phone-icon-gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --testimonial-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--body-bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+        button { cursor: pointer; border: none; font-family: inherit; }
+        input { font-family: inherit; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .gradient-text {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        @media (prefers-reduced-motion: no-preference) {
+            .fade-up {
+                opacity: 0;
+                transform: translateY(40px);
+                transition: opacity 0.7s ease, transform 0.7s ease;
+            }
+            .fade-up.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .fade-left {
+                opacity: 0;
+                transform: translateX(-40px);
+                transition: opacity 0.7s ease, transform 0.7s ease;
+            }
+            .fade-left.visible {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            .fade-right {
+                opacity: 0;
+                transform: translateX(40px);
+                transition: opacity 0.7s ease, transform 0.7s ease;
+            }
+            .fade-right.visible {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            .hero-phone {
+                animation: hero-float 6s ease-in-out infinite;
+                will-change: transform;
+            }
+
+            @keyframes hero-float {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-20px); }
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fade-up, .fade-left, .fade-right, .hero-phone {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+
+        /* ==================== NAVBAR ==================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: background 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: var(--navbar-scrolled-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .navbar-logo .logo-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .navbar-links a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+            font-weight: 500;
+        }
+
+        .navbar-links a:hover { color: var(--text); }
+
+        .navbar-cta {
+            background: linear-gradient(135deg, #4A7BF7, #3A62C4);
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .navbar-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(74, 123, 247, 0.3);
+        }
+
+        .navbar-links .navbar-cta,
+        .navbar-links .navbar-cta:hover,
+        .navbar-links .navbar-cta:visited,
+        .navbar-links .navbar-cta:active {
+            color: #fff;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1;
+            transition: border-color 0.2s, color 0.2s, transform 0.2s;
+        }
+
+        .theme-toggle:hover {
+            color: var(--text);
+            border-color: var(--primary);
+            transform: translateY(-1px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            padding: 4px;
+        }
+
+        /* ==================== HERO ==================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 120px 0 80px;
+            overflow: hidden;
+        }
+
+        .hero-bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: var(--hero-orb-opacity);
+            pointer-events: none;
+        }
+
+        .hero-bg-orb.orb-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--hero-orb-1);
+            top: -100px;
+            left: -150px;
+        }
+
+        .hero-bg-orb.orb-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--hero-orb-2);
+            bottom: -50px;
+            right: -100px;
+        }
+
+        .hero-bg-orb.orb-3 {
+            width: 300px;
+            height: 300px;
+            background: var(--hero-orb-3);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.1;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content { max-width: 560px; }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--hero-badge-bg);
+            border: 1px solid var(--hero-badge-border);
+            border-radius: 100px;
+            padding: 8px 18px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--hero-badge-text);
+            margin-bottom: 24px;
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--green);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.3); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-sub {
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 36px;
+            max-width: 480px;
+        }
+
+        .hero-form {
+            display: flex;
+            gap: 12px;
+            max-width: 460px;
+        }
+
+        .hero-form input {
+            flex: 1;
+            padding: 14px 20px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            color: var(--text);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .hero-form input::placeholder { color: var(--text-muted); }
+        .hero-form input:focus { border-color: var(--primary); }
+
+        .primary-cta-btn,
+        .hero-form button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            border-radius: 100px;
+            font-size: 1rem;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .primary-cta-btn:hover,
+        .hero-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(74, 123, 247, 0.3);
+        }
+
+        .hero-form-note {
+            margin-top: 12px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* iPhone Mockup */
+        .phone-mockup {
+            width: 280px;
+            height: 570px;
+            border-radius: 44px;
+            background: var(--phone-frame);
+            border: 3px solid var(--phone-border);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--phone-shadow);
+            margin: 0 auto;
+        }
+
+        .phone-mockup .dynamic-island {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 36px;
+            background: #000;
+            border-radius: 20px;
+            z-index: 2;
+        }
+
+        .phone-mockup .screen {
+            position: absolute;
+            inset: 3px;
+            border-radius: 41px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .phone-mockup .screen-placeholder {
+            width: 100%;
+            height: 100%;
+            background: var(--phone-screen-bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .phone-mockup .screen-placeholder .placeholder-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: var(--phone-icon-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .phone-mockup .screen-placeholder .placeholder-text {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .phone-mockup .screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ==================== PROBLEM STATEMENT (TEXT REVEAL) ==================== */
+        .problem {
+            position: relative;
+            height: 250vh;
+        }
+
+        .problem-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 24px;
+        }
+
+        .problem-text {
+            font-size: clamp(1.6rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.4;
+            max-width: 900px;
+            text-align: center;
+            letter-spacing: -0.01em;
+        }
+
+        .problem-text .word {
+            color: var(--text-muted);
+            opacity: 0.25;
+            transition: opacity 0.3s ease, color 0.3s ease;
+        }
+
+        .problem-text .word.lit {
+            opacity: 1;
+            color: var(--text);
+        }
+
+        /* ==================== HOW IT WORKS ==================== */
+        .how-it-works {
+            padding: 120px 0;
+        }
+
+        .how-it-works-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 22px;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--primary-light);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-sub {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 72px;
+        }
+
+        .section-header .section-sub {
+            margin: 0 auto;
+            max-width: 700px;
+        }
+
+        .how-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 88px;
+        }
+
+        .how-step-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            align-items: center;
+        }
+
+        .how-step-row.reverse .how-step-content {
+            order: 2;
+        }
+
+        .how-step-row.reverse .how-step-visual {
+            order: 1;
+        }
+
+        .how-step-head {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #fff;
+            box-shadow: 0 14px 40px rgba(74, 123, 247, 0.24);
+        }
+
+        .step-icon {
+            font-size: 2.6rem;
+            line-height: 1;
+        }
+
+        .how-step-content h3 {
+            font-size: clamp(1.7rem, 3vw, 2.1rem);
+            font-weight: 800;
+            margin-bottom: 14px;
+            letter-spacing: -0.01em;
+        }
+
+        .how-step-content p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            max-width: 560px;
+        }
+
+        .how-step-visual {
+            display: flex;
+            justify-content: center;
+        }
+
+        .how-step-phone {
+            width: 280px;
+            aspect-ratio: 9 / 16;
+            border-radius: 40px;
+            border: 3px solid #000;
+            background: linear-gradient(160deg, rgba(74, 123, 247, 0.22), rgba(108, 99, 255, 0.2));
+            box-shadow: 0 22px 44px rgba(74, 123, 247, 0.2);
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        .how-step-phone-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 28px;
+            color: #1f2937;
+        }
+
+        .how-step-phone-inner .preview-icon {
+            font-size: 3rem;
+            margin-bottom: 14px;
+        }
+
+        .how-step-phone-inner .preview-label {
+            font-size: 0.88rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+        }
+
+        /* ==================== FEATURES ==================== */
+        .features {
+            padding: 80px 0 120px;
+        }
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 120px;
+        }
+
+        .feature-row:last-child { margin-bottom: 0; }
+
+        .feature-row.reverse .feature-text { order: -1; }
+
+        .feature-text .feature-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--green);
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 20px;
+        }
+
+        .feature-text h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-text p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .feature-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .feature-bullets li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .feature-bullets li .check {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: rgba(16, 185, 129, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: var(--green);
+            margin-top: 2px;
+        }
+
+        .feature-phone {
+            display: flex;
+            justify-content: center;
+        }
+
+        .feature-phone .phone-mockup {
+            width: 240px;
+            height: 490px;
+            border-radius: 38px;
+        }
+
+        .feature-phone .phone-mockup .dynamic-island {
+            width: 100px;
+            height: 30px;
+            top: 10px;
+        }
+
+        .feature-phone .phone-mockup .screen {
+            border-radius: 35px;
+        }
+
+        /* ==================== NO CHEATING ==================== */
+        .no-cheating {
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .no-cheating-icon {
+            font-size: 3rem;
+            margin-bottom: 24px;
+        }
+
+        .no-cheating h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 28px;
+        }
+
+        .pills {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 28px;
+        }
+
+        .pill {
+            padding: 12px 24px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid;
+        }
+
+        .pill.blue {
+            color: var(--primary-light);
+            background: rgba(74, 123, 247, 0.1);
+            border-color: rgba(74, 123, 247, 0.25);
+        }
+
+        .pill.green {
+            color: var(--green);
+            background: rgba(16, 185, 129, 0.1);
+            border-color: rgba(16, 185, 129, 0.25);
+        }
+
+        .pill.orange {
+            color: var(--warning);
+            background: rgba(245, 158, 11, 0.1);
+            border-color: rgba(245, 158, 11, 0.25);
+        }
+
+        .no-cheating-sub {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ==================== STATS ==================== */
+        .stats {
+            padding: 80px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover { transform: translateY(-4px); }
+
+        .stat-number {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* ==================== TESTIMONIALS ==================== */
+        .testimonials {
+            padding: 120px 0 80px;
+            overflow: hidden;
+        }
+
+        .testimonials .section-header { margin-bottom: 48px; }
+
+        .marquee-wrapper {
+            position: relative;
+        }
+
+        .marquee-wrapper::before,
+        .marquee-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .marquee-wrapper::before {
+            left: 0;
+            background: linear-gradient(to right, var(--bg), transparent);
+        }
+
+        .marquee-wrapper::after {
+            right: 0;
+            background: linear-gradient(to left, var(--bg), transparent);
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 24px;
+            animation: marquee 40s linear infinite;
+            width: max-content;
+        }
+
+        .marquee-track:hover { animation-play-state: paused; }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .testimonial-card {
+            flex-shrink: 0;
+            width: 340px;
+            padding: 28px;
+            background: var(--testimonial-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(10px);
+        }
+
+        .testimonial-stars {
+            color: #F59E0B;
+            font-size: 0.9rem;
+            margin-bottom: 14px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-card blockquote {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 18px;
+            font-style: normal;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .testimonial-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .testimonial-handle {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .marquee-row-2 {
+            margin-top: 24px;
+        }
+
+        .marquee-row-2 .marquee-track {
+            animation-direction: reverse;
+            animation-duration: 45s;
+        }
+
+        /* ==================== FAQ ==================== */
+        .faq {
+            padding: 120px 0;
+        }
+
+        .faq-grid {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+
+        .faq-item[open] { border-color: rgba(74, 123, 247, 0.3); }
+
+        .faq-item summary {
+            padding: 20px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            transition: color 0.2s;
+        }
+
+        .faq-item summary::-webkit-details-marker { display: none; }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-item summary:hover { color: var(--primary-light); }
+
+        .faq-answer {
+            padding: 0 24px 20px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ==================== FINAL CTA ==================== */
+        .final-cta {
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta-bg {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .final-cta-bg .glow {
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(74, 123, 247, 0.2), transparent 70%);
+        }
+
+        .final-cta .container { position: relative; z-index: 1; }
+
+        .final-cta-icon {
+            width: 88px;
+            height: 88px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 38px;
+            font-weight: 800;
+            color: #fff;
+            margin: 0 auto 32px;
+            box-shadow: 0 20px 60px rgba(74, 123, 247, 0.3);
+        }
+
+        .final-cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .final-cta-sub {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .final-cta .hero-form {
+            max-width: 460px;
+            margin: 0 auto;
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            padding: 60px 0 32px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-top: 16px;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-col a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover { color: var(--text); }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-bottom p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-socials a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .footer-socials a:hover {
+            border-color: var(--primary);
+            color: var(--primary-light);
+        }
+
+        /* ==================== FORM STATES ==================== */
+        .form-success {
+            display: none;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 20px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 100px;
+            color: var(--green);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .form-success.show { display: flex; }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 48px;
+            }
+
+            .hero-content { max-width: 100%; }
+            .hero-sub { margin-left: auto; margin-right: auto; }
+            .hero-form { margin: 0 auto; }
+
+            .how-step-row,
+            .how-step-row.reverse {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .how-step-row.reverse .how-step-content,
+            .how-step-row.reverse .how-step-visual {
+                order: 0;
+            }
+
+            .feature-row {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .feature-row.reverse .feature-text { order: 0; }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-links { display: none; }
+            .mobile-menu-btn { display: block; }
+
+            .navbar-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--mobile-menu-bg);
+                backdrop-filter: blur(20px);
+                padding: 24px;
+                border-bottom: 1px solid var(--border);
+                gap: 20px;
+            }
+
+            .hero h1 { font-size: 2.5rem; }
+
+            .hero-form {
+                flex-direction: column;
+            }
+
+            .hero-form button { width: 100%; }
+
+            .how-steps {
+                gap: 60px;
+            }
+
+            .how-step-content {
+                text-align: center;
+            }
+
+            .how-step-head {
+                justify-content: center;
+            }
+
+            .how-step-content p {
+                margin: 0 auto;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .pills {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .phone-mockup {
+                width: 240px;
+                height: 490px;
+                border-radius: 38px;
+            }
+
+            .phone-mockup .dynamic-island {
+                width: 100px;
+                height: 30px;
+                top: 10px;
+            }
+
+            .phone-mockup .screen {
+                border-radius: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="navbar-logo">
+                <div class="logo-icon">G</div>
+                <span>GoalScroll</span>
+            </a>
+
+            <ul class="navbar-links" id="navLinks">
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#reviews">Community</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#cta" class="navbar-cta">Join Waitlist</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Switch to light mode" title="Toggle theme">&#9728;</button>
+                <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">&#9776;</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- ==================== HERO ==================== -->
+        <section class="hero" id="hero">
+            <div class="hero-bg-orb orb-1"></div>
+            <div class="hero-bg-orb orb-2"></div>
+            <div class="hero-bg-orb orb-3"></div>
+
+            <div class="container">
+                <div class="hero-content fade-up">
+                    <div class="hero-badge">
+                        <span class="dot"></span>
+                        Coming Soon to iOS
+                    </div>
+
+                    <h1><span class="gradient-text">Earn</span> Your <span class="gradient-text">Scroll Time</span></h1>
+
+                    <p class="hero-sub">The first focus app that turns screen time into a reward for personal growth. Complete microhabits. Prove it. Unlock your apps.</p>
+
+                    <form class="hero-form" id="heroForm" onsubmit="return handleSignup(event, this)">
+                        <input type="email" placeholder="Enter your email" required autocomplete="email" aria-label="Email address">
+                        <button type="submit" class="primary-cta-btn">Join the Waitlist</button>
+                    </form>
+                    <div class="form-success" id="heroSuccess">
+                        <span>&#10003;</span> You're on the list! We'll notify you at launch.
+                    </div>
+                    <p class="hero-form-note">Free to join. No spam, ever.</p>
+                </div>
+
+                <div class="hero-visual fade-up" style="transition-delay: 0.2s;">
+                    <div class="phone-mockup hero-phone">
+                        <div class="dynamic-island"></div>
+                        <div class="screen">
+                            <div class="screen-placeholder" data-screenshot>
+                                <div class="placeholder-icon">G</div>
+                                <span class="placeholder-text">App Preview</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PROBLEM STATEMENT ==================== -->
+        <section class="problem" id="problem">
+            <div class="problem-sticky">
+                <p class="problem-text" id="problemText"></p>
+            </div>
+        </section>
+
+        <!-- ==================== HOW IT WORKS ==================== -->
+        <section class="how-it-works" id="how-it-works">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <div class="how-it-works-badge">The "Prove It" System</div>
+                    <h2 class="section-title">Everything you need to <span class="gradient-text">take control</span></h2>
+                    <p class="section-sub">Unlike traditional app blockers, GoalScroll rewards positive action instead of punishing you.</p>
+                </div>
+
+                <div class="how-steps">
+                    <div class="how-step-row">
+                        <div class="how-step-content fade-left">
+                            <div class="how-step-head">
+                                <div class="step-number">1</div>
+                                <span class="step-icon">&#127919;</span>
+                            </div>
+                            <h3>Set Your Goals</h3>
+                            <p>Define what matters to you, then break it into tiny, achievable microhabits you can actually stick to.</p>
+                        </div>
+                        <div class="how-step-visual fade-right">
+                            <div class="how-step-phone">
+                                <div class="how-step-phone-inner">
+                                    <div>
+                                        <div class="preview-icon">&#127919;</div>
+                                        <p class="preview-label">Screenshot 1</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="how-step-row reverse">
+                        <div class="how-step-content fade-right">
+                            <div class="how-step-head">
+                                <div class="step-number">2</div>
+                                <span class="step-icon">&#128241;</span>
+                            </div>
+                            <h3>Select Your Block Apps</h3>
+                            <p>Choose the apps that steal your attention so GoalScroll can lock them until you earn your time back.</p>
+                        </div>
+                        <div class="how-step-visual fade-left">
+                            <div class="how-step-phone">
+                                <div class="how-step-phone-inner">
+                                    <div>
+                                        <div class="preview-icon">&#128241;</div>
+                                        <p class="preview-label">Screenshot 2</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="how-step-row">
+                        <div class="how-step-content fade-left">
+                            <div class="how-step-head">
+                                <div class="step-number">3</div>
+                                <span class="step-icon">&#128247;</span>
+                            </div>
+                            <h3>Prove You Did It</h3>
+                            <p>Take a photo, share a screenshot, or write a quick reflection. Our AI verifies your progress in seconds.</p>
+                        </div>
+                        <div class="how-step-visual fade-right">
+                            <div class="how-step-phone">
+                                <div class="how-step-phone-inner">
+                                    <div>
+                                        <div class="preview-icon">&#128247;</div>
+                                        <p class="preview-label">Screenshot 3</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="how-step-row reverse">
+                        <div class="how-step-content fade-right">
+                            <div class="how-step-head">
+                                <div class="step-number">4</div>
+                                <span class="step-icon">&#9200;</span>
+                            </div>
+                            <h3>Unlock Your Time</h3>
+                            <p>Earn scroll minutes for completing habits, then use your favorite apps guilt-free and on your terms.</p>
+                        </div>
+                        <div class="how-step-visual fade-left">
+                            <div class="how-step-phone">
+                                <div class="how-step-phone-inner">
+                                    <div>
+                                        <div class="preview-icon">&#9200;</div>
+                                        <p class="preview-label">Screenshot 4</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+           
+
+        <!-- ==================== NO CHEATING ==================== -->
+        <section class="no-cheating fade-up">
+            <div class="container">
+                <div class="no-cheating-icon">&#129504;</div>
+                <h2>Built for <span class="gradient-text">brains that wander</span></h2>
+
+                <div class="pills">
+                    <span class="pill blue">ADHD-Friendly</span>
+                    <span class="pill green">Discipline not Willpower</span>
+                    <span class="pill orange">Impossible to Cheat</span>
+                </div>
+
+                <!-- <p class="no-cheating-sub">GoalScroll uses Apple's ScreenTime API at the system level. You can't bypass it by deleting the app, restarting your phone, or switching accounts. The block stays until you earn your time. Period.</p> -->
+            </div>
+        </section>
+
+        <!-- ==================== STATS ==================== -->
+        <section class="stats" id="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card fade-up">
+                        <div class="stat-number gradient-text" data-target="4" data-suffix="+&nbsp;hrs">0</div>
+                        <p class="stat-label">Screen time reclaimed daily</p>
+                    </div>
+                    <div class="stat-card fade-up" style="transition-delay: 0.1s;">
+                        <div class="stat-number gradient-text" data-target="10" data-suffix="&nbsp;pushups">0</div>
+                        <p class="stat-label">= 15 minutes of scroll time</p>
+                    </div>
+                    <div class="stat-card fade-up" style="transition-delay: 0.2s;">
+                        <div class="stat-number gradient-text" data-target="0" data-suffix="&nbsp;ways">0</div>
+                        <p class="stat-label">To cheat the system</p>
+                    </div>
+                    <div class="stat-card fade-up" style="transition-delay: 0.3s;">
+                        <div class="stat-number gradient-text" data-target="100" data-suffix="%">0</div>
+                        <p class="stat-label">Private &mdash; your data stays on device</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TESTIMONIALS ==================== -->
+        <section class="testimonials" id="reviews">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <p class="section-label">Early Feedback</p>
+                    <h2 class="section-title">"This App Changed <span class="gradient-text">My Life</span>"</h2>
+                    <p class="section-sub">Join the Goalscrollers who replaced scrolling with meaningful, consistent progress.</p>
+                </div>
+            </div>
+
+            <div class="marquee-wrapper">
+                <div class="marquee-track">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"I actually did 20 pushups before opening Instagram today. That's never happened in my life."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">JM</div>
+                            <div>
+                                <div class="testimonial-name">Jake M.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"Finally an app blocker I can't cheat. I've tried them all. This first one that actually works."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">SR</div>
+                            <div>
+                                <div class="testimonial-name">Sarah R.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"The camera check in is genius. I have to do my revision on camera and it actually checks if i did it."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">DK</div>
+                            <div>
+                                <div class="testimonial-name">Daniel K.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"As someone with ADHD, this is the first app that actually helps. The micro-habits are small enough that I can actually do them."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">LP</div>
+                            <div>
+                                <div class="testimonial-name">Lisa P.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"I've read more in the past week than the entire last month. All because I have to earn my TikTok time."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">AT</div>
+                            <div>
+                                <div class="testimonial-name">Alex T.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"My screen time dropped from 7 hours to 3 in the first week. And I'm actually exercising now. Win-win."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">MC</div>
+                            <div>
+                                <div class="testimonial-name">Marcus C.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Duplicate set for seamless loop -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"I actually did 20 pushups before opening Instagram today. That's never happened in my life."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">JM</div>
+                            <div>
+                                <div class="testimonial-name">Jake M.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"Finally an app blocker I can't cheat. I've tried them all. This one actually works because it uses ScreenTime."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">SR</div>
+                            <div>
+                                <div class="testimonial-name">Sarah R.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"The AI proof verification is genius. I can't just take a random photo — it actually checks if I did the habit."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">DK</div>
+                            <div>
+                                <div class="testimonial-name">Daniel K.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"As someone with ADHD, this is the first app that actually helps. The micro-habits are small enough that I can actually do them."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">LP</div>
+                            <div>
+                                <div class="testimonial-name">Lisa P.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"I've read more in the past week than the entire last month. All because I have to earn my TikTok time."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">AT</div>
+                            <div>
+                                <div class="testimonial-name">Alex T.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"My screen time dropped from 7 hours to 3 in the first week. And I'm actually exercising now. Win-win."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">MC</div>
+                            <div>
+                                <div class="testimonial-name">Marcus C.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="marquee-wrapper marquee-row-2">
+                <div class="marquee-track">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"I love that it's not about punishment — it's about earning. That mindset shift is everything."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">EN</div>
+                            <div>
+                                <div class="testimonial-name">Emily N.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"Set it up for my teenager. He's now doing homework before YouTube. I didn't think that was possible."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">RW</div>
+                            <div>
+                                <div class="testimonial-name">Rachel W.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"The habit library is so well thought out. It suggested meditation and journaling, and now I do both daily."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">TH</div>
+                            <div>
+                                <div class="testimonial-name">Tyler H.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"I was skeptical, but after a week I was hooked. It gamifies self-improvement in the best way possible."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">OB</div>
+                            <div>
+                                <div class="testimonial-name">Omar B.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"Clean design, simple concept, actually works. What more could you want from a focus app?"</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">KF</div>
+                            <div>
+                                <div class="testimonial-name">Kim F.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"Went from 0 to a 14-day pushup streak just because I wanted to use Twitter. Wild how motivation works."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">NJ</div>
+                            <div>
+                                <div class="testimonial-name">Nate J.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"I love that it's not about punishment — it's about earning. That mindset shift is everything."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">EN</div>
+                            <div>
+                                <div class="testimonial-name">Emily N.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"Set it up for my teenager. He's now doing homework before YouTube. I didn't think that was possible."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">RW</div>
+                            <div>
+                                <div class="testimonial-name">Rachel W.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"The habit library is so well thought out. It suggested meditation and journaling, and now I do both daily."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">TH</div>
+                            <div>
+                                <div class="testimonial-name">Tyler H.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"I was skeptical, but after a week I was hooked. It gamifies self-improvement in the best way possible."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">OB</div>
+                            <div>
+                                <div class="testimonial-name">Omar B.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"Clean design, simple concept, actually works. What more could you want from a focus app?"</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">KF</div>
+                            <div>
+                                <div class="testimonial-name">Kim F.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote>"Went from 0 to a 14-day pushup streak just because I wanted to use Twitter. Wild how motivation works."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">NJ</div>
+                            <div>
+                                <div class="testimonial-name">Nate J.</div>
+                                <div class="testimonial-handle">Beta tester</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container" style="text-align: center; margin-top: 48px;">
+                <a href="https://discord.gg/goalscroll" target="_blank" rel="noopener noreferrer" class="primary-cta-btn">Get in the GoalScroll Group</a>
+            </div>
+        </section>
+
+        <!-- ==================== FAQ ==================== -->
+        <section class="faq" id="faq">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <p class="section-label">FAQ</p>
+                    <h2 class="section-title">Got <span class="gradient-text">questions?</span></h2>
+                </div>
+
+                <div class="faq-grid">
+                    <details class="faq-item fade-up">
+                        <summary>Is GoalScroll free?</summary>
+                        <div class="faq-answer">GoalScroll will offer a free tier with core features. We're still finalizing pricing for premium features, but our goal is to keep it accessible to everyone. Join the waitlist to get early-bird pricing when we launch.</div>
+                    </details>
+
+                    <details class="faq-item fade-up" style="transition-delay: 0.05s;">
+                        <summary>Can I bypass the app blocker?</summary>
+                        <div class="faq-answer">Nope. GoalScroll uses Apple's ScreenTime API at the system level. You can't bypass it by deleting the app, restarting your phone, or switching accounts. The block stays until you complete your habit and submit proof. That's the whole point.</div>
+                    </details>
+
+                    <details class="faq-item fade-up" style="transition-delay: 0.1s;">
+                        <summary>What counts as proof?</summary>
+                        <div class="faq-answer">Depending on the habit, you can submit a photo (e.g., you doing pushups), a screenshot (e.g., a meditation app session), or a written reflection. Our AI analyzes the proof to verify you actually did the habit &mdash; not just took a random picture.</div>
+                    </details>
+
+                    <details class="faq-item fade-up" style="transition-delay: 0.15s;">
+                        <summary>Do I need to use my camera?</summary>
+                        <div class="faq-answer">Not necessarily. While photo proof is one option, you can also use screenshots from other apps or write a reflection. We offer multiple proof methods so you can choose what's comfortable for you.</div>
+                    </details>
+
+                    <details class="faq-item fade-up" style="transition-delay: 0.2s;">
+                        <summary>Is my data private?</summary>
+                        <div class="faq-answer">Absolutely. Photos and proofs are processed for verification and are not stored permanently. We don't sell your data, and habit data stays on your device. Your privacy is a core design principle, not an afterthought.</div>
+                    </details>
+
+                    <details class="faq-item fade-up" style="transition-delay: 0.25s;">
+                        <summary>When will GoalScroll launch?</summary>
+                        <div class="faq-answer">We're currently in beta testing and working toward an App Store launch soon. Join the waitlist to be the first to know when we go live and to get early access.</div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== FINAL CTA ==================== -->
+        <section class="final-cta" id="cta">
+            <div class="final-cta-bg"><div class="glow"></div></div>
+            <div class="container fade-up">
+                <div class="final-cta-icon">G</div>
+                <h2>Start <span class="gradient-text">earning your scroll time</span></h2>
+                <p class="final-cta-sub">Join the waitlist and be the first to reclaim your screen time when GoalScroll launches on iOS.</p>
+
+                <form class="hero-form" id="ctaForm" onsubmit="return handleSignup(event, this)">
+                    <input type="email" placeholder="Enter your email" required autocomplete="email" aria-label="Email address">
+                    <button type="submit" class="primary-cta-btn">Join the Waitlist</button>
+                </form>
+                <div class="form-success" id="ctaSuccess" style="justify-content: center; margin-top: 16px;">
+                    <span>&#10003;</span> You're on the list! We'll notify you at launch.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="navbar-logo">
+                        <div class="logo-icon">G</div>
+                        <span>GoalScroll</span>
+                    </a>
+                    <p>Turn screen time into a reward for personal growth. Complete microhabits, prove it, and earn your scroll time.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#cta">Join Waitlist</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <!-- <li><a href="#">Terms of Service</a></li> -->
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Twitter / X</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">TikTok</a></li>
+                        <li><a href="mailto:hello@goalscroll.app">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 GoalScroll. All rights reserved.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Twitter">&#120143;</a>
+                    <a href="#" aria-label="Instagram">&#9673;</a>
+                    <a href="#" aria-label="TikTok">&#9835;</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+    (function() {
+        'use strict';
+
+        // ===== THEME TOGGLE =====
+        var root = document.documentElement;
+        var themeToggle = document.getElementById('themeToggle');
+
+        function applyTheme(theme) {
+            root.setAttribute('data-theme', theme);
+
+            if (!themeToggle) return;
+
+            var isDark = theme === 'dark';
+            themeToggle.textContent = isDark ? '\u2600' : '\u263E';
+            themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+            themeToggle.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+        }
+
+        function getInitialTheme() {
+            var attrTheme = root.getAttribute('data-theme');
+            if (attrTheme === 'light' || attrTheme === 'dark') return attrTheme;
+            return 'dark';
+        }
+
+        applyTheme(getInitialTheme());
+
+        if (themeToggle) {
+            themeToggle.addEventListener('click', function() {
+                var nextTheme = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                applyTheme(nextTheme);
+                try {
+                    localStorage.setItem('theme', nextTheme);
+                } catch (e) {
+                    // Ignore storage errors (private browsing, disabled storage).
+                }
+            });
+        }
+
+        // ===== NAVBAR SCROLL =====
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+
+        function onScroll() {
+            const scrollY = window.scrollY;
+            if (scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            lastScroll = scrollY;
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        // ===== MOBILE MENU =====
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        menuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('open');
+            this.textContent = navLinks.classList.contains('open') ? '\u2715' : '\u2630';
+        });
+
+        // Close mobile menu on link click
+        navLinks.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('open');
+                menuBtn.textContent = '\u2630';
+            });
+        });
+
+        // ===== INTERSECTION OBSERVER (Fade-in animations) =====
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            var observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(function(el) {
+                observer.observe(el);
+            });
+        } else {
+            // If reduced motion, make everything visible immediately
+            document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(function(el) {
+                el.classList.add('visible');
+            });
+        }
+
+        // ===== PROBLEM STATEMENT - Word-by-Word Reveal =====
+        var problemSection = document.getElementById('problem');
+        var problemTextEl = document.getElementById('problemText');
+        var problemWords = 'The average person spends 5 to 6 hours a day on their phone. Most of it mindless. What if every minute of screen time was something you earned?'.split(' ');
+
+        // Wrap each word in a span
+        problemTextEl.innerHTML = problemWords.map(function(word) {
+            return '<span class="word">' + word + '</span>';
+        }).join(' ');
+
+        var wordSpans = problemTextEl.querySelectorAll('.word');
+
+        function updateProblemReveal() {
+            var rect = problemSection.getBoundingClientRect();
+            var sectionTop = -rect.top;
+            var sectionHeight = problemSection.offsetHeight - window.innerHeight;
+
+            if (sectionTop < 0 || sectionHeight <= 0) {
+                // Before the section
+                wordSpans.forEach(function(s) { s.classList.remove('lit'); });
+                return;
+            }
+
+            var progress = Math.min(Math.max(sectionTop / sectionHeight, 0), 1);
+            var wordsToLight = Math.floor(progress * wordSpans.length);
+
+            wordSpans.forEach(function(span, i) {
+                if (i < wordsToLight) {
+                    span.classList.add('lit');
+                } else {
+                    span.classList.remove('lit');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateProblemReveal, { passive: true });
+        updateProblemReveal();
+
+        // ===== COUNTER ANIMATION =====
+        var statNumbers = document.querySelectorAll('.stat-number[data-target]');
+        var countersStarted = new Set();
+
+        function animateCounter(el) {
+            var target = parseInt(el.getAttribute('data-target'), 10);
+            var suffix = el.getAttribute('data-suffix') || '';
+            var duration = 1500;
+            var startTime = null;
+
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                var elapsed = timestamp - startTime;
+                var progress = Math.min(elapsed / duration, 1);
+                // Ease out
+                var eased = 1 - Math.pow(1 - progress, 3);
+                var current = Math.round(eased * target);
+                el.innerHTML = current + suffix;
+
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                }
+            }
+
+            requestAnimationFrame(step);
+        }
+
+        var counterObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && !countersStarted.has(entry.target)) {
+                    countersStarted.add(entry.target);
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statNumbers.forEach(function(el) {
+            counterObserver.observe(el);
+        });
+
+        // ===== EMAIL SIGNUP (Supabase direct) =====
+        var SUPABASE_URL = 'https://euzcwrjhiqaoffixakog.supabase.co';
+        var SUPABASE_ANON_KEY = 'sb_publishable_B9oPG21wUBoB2jQClpPczQ_KNF0UUW7';
+
+        window.handleSignup = function(e, form) {
+            e.preventDefault();
+            var emailInput = form.querySelector('input[type="email"]');
+            var submitBtn = form.querySelector('button[type="submit"]');
+            var email = emailInput.value.trim();
+            if (!email) return false;
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Joining...';
+
+            fetch(SUPABASE_URL + '/rest/v1/waitlist', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'apikey': SUPABASE_ANON_KEY,
+                    'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+                    'Prefer': 'return=minimal'
+                },
+                body: JSON.stringify({ email: email })
+            })
+            .then(function(res) {
+                if (res.status === 201 || res.status === 409) {
+                    // 201 = created, 409 = duplicate (already signed up)
+                    form.style.display = 'none';
+                    var successEl = form.nextElementSibling;
+                    if (successEl && successEl.classList.contains('form-success')) {
+                        successEl.classList.add('show');
+                    }
+                } else {
+                    submitBtn.textContent = 'Join the Waitlist';
+                    submitBtn.disabled = false;
+                    alert('Something went wrong. Please try again.');
+                }
+            })
+            .catch(function() {
+                submitBtn.textContent = 'Join the Waitlist';
+                submitBtn.disabled = false;
+                alert('Network error. Please try again.');
+            });
+
+            return false;
+        };
+
+        // ===== SMOOTH SCROLL for Nav Links =====
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                var targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                var target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+    })();
+    </script>
+</body>
+</html>

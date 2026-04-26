@@ -1,0 +1,965 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		000000000000000000000001 /* GoalScrollApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000001 /* GoalScrollApp.swift */; };
+		000000000000000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000002 /* ContentView.swift */; };
+		000000000000000000000003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000003 /* Assets.xcassets */; };
+		000000000000000000000004 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000004 /* Preview Assets.xcassets */; };
+		000000000000000000000005 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000005 /* Goal.swift */; };
+		000000000000000000000006 /* CompletionRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000006 /* CompletionRecord.swift */; };
+		000000000000000000000007 /* ProofItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000007 /* ProofItem.swift */; };
+		000000000000000000000008 /* UserStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000008 /* UserStats.swift */; };
+		000000000000000000000009 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000009 /* AppState.swift */; };
+		000000000000000000000010 /* GoalsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000010 /* GoalsStore.swift */; };
+		000000000000000000000011 /* StatsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000011 /* StatsStore.swift */; };
+		000000000000000000000012 /* GeminiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000012 /* GeminiService.swift */; };
+		000000000000000000000013 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000013 /* NotificationManager.swift */; };
+		000000000000000000000014 /* ScreenTimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000014 /* ScreenTimeManager.swift */; };
+		000000000000000000000015 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000015 /* Constants.swift */; };
+		000000000000000000000016 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000016 /* Extensions.swift */; };
+		000000000000000000000017 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000017 /* Theme.swift */; };
+		000000000000000000000018 /* ChipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000018 /* ChipView.swift */; };
+		000000000000000000000019 /* GoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000019 /* GoalCardView.swift */; };
+		000000000000000000000020 /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000020 /* GradientBackgroundView.swift */; };
+		000000000000000000000021 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000021 /* InputField.swift */; };
+		000000000000000000000022 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000022 /* PrimaryButton.swift */; };
+		000000000000000000000023 /* ProgressPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000023 /* ProgressPanelView.swift */; };
+		000000000000000000000024 /* ChooseTriggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000024 /* ChooseTriggerView.swift */; };
+		000000000000000000000025 /* DefineMicrohabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000025 /* DefineMicrohabitView.swift */; };
+		000000000000000000000026 /* EnterGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000026 /* EnterGoalView.swift */; };
+		000000000000000000000027 /* OnboardingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000027 /* OnboardingContainerView.swift */; };
+		000000000000000000000028 /* ProofSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000028 /* ProofSelectionView.swift */; };
+		000000000000000000000029 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000029 /* SummaryView.swift */; };
+		000000000000000000000030 /* WhyImportanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000030 /* WhyImportanceView.swift */; };
+		000000000000000000000031 /* AddGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000031 /* AddGoalView.swift */; };
+		000000000000000000000032 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000032 /* HomeView.swift */; };
+		000000000000000000000033 /* UnlockTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000033 /* UnlockTimerView.swift */; };
+		000000000000000000000034 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000034 /* CameraView.swift */; };
+		000000000000000000000035 /* ProofCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000035 /* ProofCaptureView.swift */; };
+		000000000000000000000036 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000036 /* SettingsView.swift */; };
+		000000000000000000000038 /* ShieldConfigurationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000038 /* ShieldConfigurationExtension.swift */; };
+		000000000000000000000039 /* GoalScrollShield.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 200000000000000000000002 /* GoalScrollShield.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		000000000000000000000040 /* ShieldSharedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000040 /* ShieldSharedStore.swift */; };
+		000000000000000000000041 /* GoalRewardAllocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000041 /* GoalRewardAllocator.swift */; };
+		000000000000000000000042 /* NamePromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000042 /* NamePromptView.swift */; };
+		000000000000000000000043 /* FirstRunSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000043 /* FirstRunSetupView.swift */; };
+		000000000000000000000044 /* WeeklyReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000044 /* WeeklyReviewView.swift */; };
+		000000000000000000000045 /* GotItView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000045 /* GotItView.swift */; };
+		000000000000000000000046 /* BouncingDotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000046 /* BouncingDotsView.swift */; };
+		000000000000000000000047 /* GoalTransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000047 /* GoalTransitionView.swift */; };
+		000000000000000000000048 /* OnboardingGoalDraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000048 /* OnboardingGoalDraft.swift */; };
+		000000000000000000000049 /* ActiveSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000049 /* ActiveSheet.swift */; };
+		000000000000000000000050 /* AppSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000050 /* AppSelectionView.swift */; };
+		000000000000000000000051 /* VerificationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000051 /* VerificationStore.swift */; };
+		000000000000000000000052 /* CalendarUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000052 /* CalendarUtils.swift */; };
+		000000000000000000000053 /* SupabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000053 /* SupabaseManager.swift */; };
+		000000000000000000000054 /* SyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000054 /* SyncManager.swift */; };
+		000000000000000000000055 /* GoalDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000055 /* GoalDTO.swift */; };
+		000000000000000000000056 /* UserStatsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000056 /* UserStatsDTO.swift */; };
+		000000000000000000000057 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000057 /* RootView.swift */; };
+		869C15D32F3636C600E87483 /* AuthContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869C15D22F3636C600E87483 /* AuthContainerView.swift */; };
+		869C15D52F3636C600E87483 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869C15D42F3636C600E87483 /* ForgotPasswordView.swift */; };
+		869C15D72F3636C600E87483 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869C15D62F3636C600E87483 /* SignInView.swift */; };
+		869C15D92F3636C600E87483 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869C15D82F3636C600E87483 /* SignUpView.swift */; };
+		869C15C92F3636C600E87483 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 869C15C82F3636C600E87483 /* Auth */; };
+		869C15D12F3636C600E87483 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 869C15D02F3636C600E87483 /* Supabase */; };
+		869C15CB2F3636C600E87483 /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 869C15CA2F3636C600E87483 /* Functions */; };
+		869C15CD2F3636C600E87483 /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 869C15CC2F3636C600E87483 /* PostgREST */; };
+		869C15CF2F363D2F00E87483 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 869C15CE2F363D2F00E87483 /* Secrets.xcconfig */; };
+		910000000000000000000001 /* DeviceActivityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910000000000000000000003 /* DeviceActivityMonitor.swift */; };
+		910000000000000000000002 /* GoalScrollMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 910000000000000000000006 /* GoalScrollMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		500000000000000000000007 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				000000000000000000000039 /* GoalScrollShield.appex in Embed Foundation Extensions */,
+				910000000000000000000002 /* GoalScrollMonitor.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		100000000000000000000001 /* GoalScrollApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalScrollApp.swift; sourceTree = "<group>"; };
+		100000000000000000000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		100000000000000000000003 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		100000000000000000000004 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		100000000000000000000005 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		100000000000000000000006 /* CompletionRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionRecord.swift; sourceTree = "<group>"; };
+		100000000000000000000007 /* ProofItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofItem.swift; sourceTree = "<group>"; };
+		100000000000000000000008 /* UserStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStats.swift; sourceTree = "<group>"; };
+		100000000000000000000009 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		100000000000000000000010 /* GoalsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsStore.swift; sourceTree = "<group>"; };
+		100000000000000000000011 /* StatsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsStore.swift; sourceTree = "<group>"; };
+		100000000000000000000012 /* GeminiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiService.swift; sourceTree = "<group>"; };
+		100000000000000000000013 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		100000000000000000000014 /* ScreenTimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeManager.swift; sourceTree = "<group>"; };
+		100000000000000000000015 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		100000000000000000000016 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		100000000000000000000017 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		100000000000000000000018 /* ChipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipView.swift; sourceTree = "<group>"; };
+		100000000000000000000019 /* GoalCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCardView.swift; sourceTree = "<group>"; };
+		100000000000000000000020 /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
+		100000000000000000000021 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
+		100000000000000000000022 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		100000000000000000000023 /* ProgressPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressPanelView.swift; sourceTree = "<group>"; };
+		100000000000000000000024 /* ChooseTriggerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTriggerView.swift; sourceTree = "<group>"; };
+		100000000000000000000025 /* DefineMicrohabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefineMicrohabitView.swift; sourceTree = "<group>"; };
+		100000000000000000000026 /* EnterGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterGoalView.swift; sourceTree = "<group>"; };
+		100000000000000000000027 /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
+		100000000000000000000028 /* ProofSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofSelectionView.swift; sourceTree = "<group>"; };
+		100000000000000000000029 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
+		100000000000000000000030 /* WhyImportanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhyImportanceView.swift; sourceTree = "<group>"; };
+		100000000000000000000031 /* AddGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalView.swift; sourceTree = "<group>"; };
+		100000000000000000000032 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		100000000000000000000033 /* UnlockTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockTimerView.swift; sourceTree = "<group>"; };
+		100000000000000000000034 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		100000000000000000000035 /* ProofCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofCaptureView.swift; sourceTree = "<group>"; };
+		100000000000000000000036 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		100000000000000000000038 /* ShieldConfigurationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldConfigurationExtension.swift; sourceTree = "<group>"; };
+		100000000000000000000039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		100000000000000000000040 /* ShieldSharedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldSharedStore.swift; sourceTree = "<group>"; };
+		100000000000000000000041 /* GoalRewardAllocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalRewardAllocator.swift; sourceTree = "<group>"; };
+		100000000000000000000042 /* NamePromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamePromptView.swift; sourceTree = "<group>"; };
+		100000000000000000000043 /* FirstRunSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRunSetupView.swift; sourceTree = "<group>"; };
+		100000000000000000000044 /* WeeklyReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyReviewView.swift; sourceTree = "<group>"; };
+		100000000000000000000045 /* GotItView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GotItView.swift; sourceTree = "<group>"; };
+		100000000000000000000046 /* BouncingDotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncingDotsView.swift; sourceTree = "<group>"; };
+		100000000000000000000047 /* GoalTransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTransitionView.swift; sourceTree = "<group>"; };
+		100000000000000000000048 /* OnboardingGoalDraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingGoalDraft.swift; sourceTree = "<group>"; };
+		100000000000000000000049 /* ActiveSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSheet.swift; sourceTree = "<group>"; };
+		100000000000000000000050 /* AppSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSelectionView.swift; sourceTree = "<group>"; };
+		100000000000000000000051 /* VerificationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationStore.swift; sourceTree = "<group>"; };
+		100000000000000000000052 /* CalendarUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarUtils.swift; sourceTree = "<group>"; };
+		100000000000000000000053 /* SupabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseManager.swift; sourceTree = "<group>"; };
+		100000000000000000000054 /* SyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncManager.swift; sourceTree = "<group>"; };
+		100000000000000000000055 /* GoalDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDTO.swift; sourceTree = "<group>"; };
+		100000000000000000000056 /* UserStatsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatsDTO.swift; sourceTree = "<group>"; };
+		100000000000000000000057 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		869C15D22F3636C600E87483 /* AuthContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthContainerView.swift; sourceTree = "<group>"; };
+		869C15D42F3636C600E87483 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		869C15D62F3636C600E87483 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		869C15D82F3636C600E87483 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		200000000000000000000001 /* GoalScroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoalScroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		200000000000000000000002 /* GoalScrollShield.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GoalScrollShield.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		869C15CE2F363D2F00E87483 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		86AC3DFC2F186A6B00144B24 /* GoalScroll.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoalScroll.entitlements; sourceTree = "<group>"; };
+		86AC3EA82F19BC8F00144B24 /* GoalScrollShield.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoalScrollShield.entitlements; sourceTree = "<group>"; };
+		910000000000000000000003 /* DeviceActivityMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitor.swift; sourceTree = "<group>"; };
+		910000000000000000000004 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		910000000000000000000005 /* GoalScrollMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoalScrollMonitor.entitlements; sourceTree = "<group>"; };
+		910000000000000000000006 /* GoalScrollMonitor.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GoalScrollMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		300000000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				869C15D12F3636C600E87483 /* Supabase in Frameworks */,
+				869C15CD2F3636C600E87483 /* PostgREST in Frameworks */,
+				869C15CB2F3636C600E87483 /* Functions in Frameworks */,
+				869C15C92F3636C600E87483 /* Auth in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		300000000000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		910000000000000000000007 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		400000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				400000000000000000000002 /* GoalScroll */,
+				400000000000000000000016 /* GoalScrollShield */,
+				910000000000000000000008 /* GoalScrollMonitor */,
+				400000000000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		400000000000000000000002 /* GoalScroll */ = {
+			isa = PBXGroup;
+			children = (
+				86AC3DFC2F186A6B00144B24 /* GoalScroll.entitlements */,
+				869C15CE2F363D2F00E87483 /* Secrets.xcconfig */,
+				100000000000000000000001 /* GoalScrollApp.swift */,
+				100000000000000000000002 /* ContentView.swift */,
+				400000000000000000000004 /* Models */,
+				400000000000000000000005 /* Views */,
+				400000000000000000000006 /* Stores */,
+				400000000000000000000007 /* Services */,
+				400000000000000000000008 /* Utilities */,
+				100000000000000000000003 /* Assets.xcassets */,
+				400000000000000000000009 /* Preview Content */,
+			);
+			path = GoalScroll;
+			sourceTree = "<group>";
+		};
+		400000000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000001 /* GoalScroll.app */,
+				200000000000000000000002 /* GoalScrollShield.appex */,
+				910000000000000000000006 /* GoalScrollMonitor.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		400000000000000000000004 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000005 /* Goal.swift */,
+				100000000000000000000006 /* CompletionRecord.swift */,
+				100000000000000000000007 /* ProofItem.swift */,
+				100000000000000000000008 /* UserStats.swift */,
+				100000000000000000000048 /* OnboardingGoalDraft.swift */,
+				100000000000000000000049 /* ActiveSheet.swift */,
+				400000000000000000000020 /* DTOs */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		400000000000000000000020 /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000055 /* GoalDTO.swift */,
+				100000000000000000000056 /* UserStatsDTO.swift */,
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
+		400000000000000000000005 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000057 /* RootView.swift */,
+				400000000000000000000010 /* Components */,
+				869C15DA2F3636C600E87483 /* Auth */,
+				400000000000000000000011 /* Onboarding */,
+				400000000000000000000012 /* Home */,
+				400000000000000000000013 /* Proof */,
+				400000000000000000000017 /* Review */,
+				400000000000000000000014 /* Settings */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		869C15DA2F3636C600E87483 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				869C15D22F3636C600E87483 /* AuthContainerView.swift */,
+				869C15D42F3636C600E87483 /* ForgotPasswordView.swift */,
+				869C15D62F3636C600E87483 /* SignInView.swift */,
+				869C15D82F3636C600E87483 /* SignUpView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		400000000000000000000006 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000009 /* AppState.swift */,
+				100000000000000000000010 /* GoalsStore.swift */,
+				100000000000000000000011 /* StatsStore.swift */,
+				100000000000000000000051 /* VerificationStore.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		400000000000000000000007 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000012 /* GeminiService.swift */,
+				100000000000000000000040 /* ShieldSharedStore.swift */,
+				100000000000000000000013 /* NotificationManager.swift */,
+				100000000000000000000014 /* ScreenTimeManager.swift */,
+				100000000000000000000053 /* SupabaseManager.swift */,
+				100000000000000000000054 /* SyncManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		400000000000000000000008 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000015 /* Constants.swift */,
+				100000000000000000000016 /* Extensions.swift */,
+				100000000000000000000041 /* GoalRewardAllocator.swift */,
+				100000000000000000000052 /* CalendarUtils.swift */,
+				100000000000000000000017 /* Theme.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		400000000000000000000009 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000004 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		400000000000000000000010 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000046 /* BouncingDotsView.swift */,
+				100000000000000000000018 /* ChipView.swift */,
+				100000000000000000000019 /* GoalCardView.swift */,
+				100000000000000000000020 /* GradientBackgroundView.swift */,
+				100000000000000000000021 /* InputField.swift */,
+				100000000000000000000022 /* PrimaryButton.swift */,
+				100000000000000000000023 /* ProgressPanelView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		400000000000000000000011 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000024 /* ChooseTriggerView.swift */,
+				100000000000000000000025 /* DefineMicrohabitView.swift */,
+				100000000000000000000026 /* EnterGoalView.swift */,
+				100000000000000000000043 /* FirstRunSetupView.swift */,
+				100000000000000000000047 /* GoalTransitionView.swift */,
+				100000000000000000000045 /* GotItView.swift */,
+				100000000000000000000042 /* NamePromptView.swift */,
+				100000000000000000000027 /* OnboardingContainerView.swift */,
+				100000000000000000000028 /* ProofSelectionView.swift */,
+				100000000000000000000029 /* SummaryView.swift */,
+				100000000000000000000030 /* WhyImportanceView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		400000000000000000000012 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000031 /* AddGoalView.swift */,
+				100000000000000000000032 /* HomeView.swift */,
+				100000000000000000000033 /* UnlockTimerView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		400000000000000000000013 /* Proof */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000034 /* CameraView.swift */,
+				100000000000000000000035 /* ProofCaptureView.swift */,
+			);
+			path = Proof;
+			sourceTree = "<group>";
+		};
+		400000000000000000000014 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000036 /* SettingsView.swift */,
+				100000000000000000000050 /* AppSelectionView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		400000000000000000000016 /* GoalScrollShield */ = {
+			isa = PBXGroup;
+			children = (
+				86AC3EA82F19BC8F00144B24 /* GoalScrollShield.entitlements */,
+				100000000000000000000038 /* ShieldConfigurationExtension.swift */,
+				100000000000000000000039 /* Info.plist */,
+			);
+			path = GoalScrollShield;
+			sourceTree = "<group>";
+		};
+		400000000000000000000017 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000044 /* WeeklyReviewView.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		910000000000000000000008 /* GoalScrollMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				910000000000000000000005 /* GoalScrollMonitor.entitlements */,
+				910000000000000000000003 /* DeviceActivityMonitor.swift */,
+				910000000000000000000004 /* Info.plist */,
+			);
+			path = GoalScrollMonitor;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		500000000000000000000001 /* GoalScroll */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 600000000000000000000001 /* Build configuration list for PBXNativeTarget "GoalScroll" */;
+			buildPhases = (
+				500000000000000000000002 /* Sources */,
+				300000000000000000000001 /* Frameworks */,
+				500000000000000000000003 /* Resources */,
+				500000000000000000000007 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoalScroll;
+			productName = GoalScroll;
+			productReference = 200000000000000000000001 /* GoalScroll.app */;
+			productType = "com.apple.product-type.application";
+		};
+		500000000000000000000004 /* GoalScrollShield */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 600000000000000000000003 /* Build configuration list for PBXNativeTarget "GoalScrollShield" */;
+			buildPhases = (
+				500000000000000000000005 /* Sources */,
+				300000000000000000000002 /* Frameworks */,
+				500000000000000000000006 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoalScrollShield;
+			productName = GoalScrollShield;
+			productReference = 200000000000000000000002 /* GoalScrollShield.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		910000000000000000000009 /* GoalScrollMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 910000000000000000000010 /* Build configuration list for PBXNativeTarget "GoalScrollMonitor" */;
+			buildPhases = (
+				910000000000000000000012 /* Sources */,
+				910000000000000000000007 /* Frameworks */,
+				910000000000000000000011 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoalScrollMonitor;
+			productName = GoalScrollMonitor;
+			productReference = 910000000000000000000006 /* GoalScrollMonitor.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		700000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					500000000000000000000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					500000000000000000000004 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					910000000000000000000009 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 600000000000000000000002 /* Build configuration list for PBXProject "GoalScroll" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 400000000000000000000001;
+			packageReferences = (
+				869C15C72F3636C600E87483 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
+			productRefGroup = 400000000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				500000000000000000000001 /* GoalScroll */,
+				500000000000000000000004 /* GoalScrollShield */,
+				910000000000000000000009 /* GoalScrollMonitor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		500000000000000000000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000000000000000000000004 /* Preview Assets.xcassets in Resources */,
+				000000000000000000000003 /* Assets.xcassets in Resources */,
+				869C15CF2F363D2F00E87483 /* Secrets.xcconfig in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		500000000000000000000006 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		910000000000000000000011 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		500000000000000000000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000000000000000000000002 /* ContentView.swift in Sources */,
+				000000000000000000000001 /* GoalScrollApp.swift in Sources */,
+				000000000000000000000005 /* Goal.swift in Sources */,
+				000000000000000000000006 /* CompletionRecord.swift in Sources */,
+				000000000000000000000007 /* ProofItem.swift in Sources */,
+				000000000000000000000008 /* UserStats.swift in Sources */,
+				000000000000000000000048 /* OnboardingGoalDraft.swift in Sources */,
+				000000000000000000000049 /* ActiveSheet.swift in Sources */,
+				000000000000000000000009 /* AppState.swift in Sources */,
+				000000000000000000000010 /* GoalsStore.swift in Sources */,
+				000000000000000000000011 /* StatsStore.swift in Sources */,
+				000000000000000000000012 /* GeminiService.swift in Sources */,
+				000000000000000000000013 /* NotificationManager.swift in Sources */,
+				000000000000000000000014 /* ScreenTimeManager.swift in Sources */,
+				000000000000000000000015 /* Constants.swift in Sources */,
+				000000000000000000000016 /* Extensions.swift in Sources */,
+				000000000000000000000041 /* GoalRewardAllocator.swift in Sources */,
+				000000000000000000000017 /* Theme.swift in Sources */,
+				000000000000000000000046 /* BouncingDotsView.swift in Sources */,
+				000000000000000000000018 /* ChipView.swift in Sources */,
+				000000000000000000000019 /* GoalCardView.swift in Sources */,
+				000000000000000000000020 /* GradientBackgroundView.swift in Sources */,
+				000000000000000000000021 /* InputField.swift in Sources */,
+				000000000000000000000022 /* PrimaryButton.swift in Sources */,
+				000000000000000000000023 /* ProgressPanelView.swift in Sources */,
+				000000000000000000000024 /* ChooseTriggerView.swift in Sources */,
+				000000000000000000000025 /* DefineMicrohabitView.swift in Sources */,
+				000000000000000000000026 /* EnterGoalView.swift in Sources */,
+				000000000000000000000043 /* FirstRunSetupView.swift in Sources */,
+				000000000000000000000047 /* GoalTransitionView.swift in Sources */,
+				000000000000000000000045 /* GotItView.swift in Sources */,
+				000000000000000000000027 /* OnboardingContainerView.swift in Sources */,
+				000000000000000000000042 /* NamePromptView.swift in Sources */,
+				000000000000000000000028 /* ProofSelectionView.swift in Sources */,
+				000000000000000000000029 /* SummaryView.swift in Sources */,
+				000000000000000000000030 /* WhyImportanceView.swift in Sources */,
+				000000000000000000000031 /* AddGoalView.swift in Sources */,
+				000000000000000000000032 /* HomeView.swift in Sources */,
+				000000000000000000000033 /* UnlockTimerView.swift in Sources */,
+				000000000000000000000044 /* WeeklyReviewView.swift in Sources */,
+				000000000000000000000034 /* CameraView.swift in Sources */,
+				000000000000000000000035 /* ProofCaptureView.swift in Sources */,
+				000000000000000000000036 /* SettingsView.swift in Sources */,
+				000000000000000000000050 /* AppSelectionView.swift in Sources */,
+				000000000000000000000040 /* ShieldSharedStore.swift in Sources */,
+				000000000000000000000051 /* VerificationStore.swift in Sources */,
+				000000000000000000000052 /* CalendarUtils.swift in Sources */,
+				000000000000000000000053 /* SupabaseManager.swift in Sources */,
+				000000000000000000000054 /* SyncManager.swift in Sources */,
+				000000000000000000000055 /* GoalDTO.swift in Sources */,
+				000000000000000000000056 /* UserStatsDTO.swift in Sources */,
+				000000000000000000000057 /* RootView.swift in Sources */,
+				869C15D32F3636C600E87483 /* AuthContainerView.swift in Sources */,
+				869C15D52F3636C600E87483 /* ForgotPasswordView.swift in Sources */,
+				869C15D72F3636C600E87483 /* SignInView.swift in Sources */,
+				869C15D92F3636C600E87483 /* SignUpView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		500000000000000000000005 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000000000000000000000038 /* ShieldConfigurationExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		910000000000000000000012 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				910000000000000000000001 /* DeviceActivityMonitor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		800000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 869C15CE2F363D2F00E87483 /* Secrets.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		800000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 869C15CE2F363D2F00E87483 /* Secrets.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		800000000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 869C15CE2F363D2F00E87483 /* Secrets.xcconfig */;
+			buildSettings = {
+				APP_BUNDLE_ID = com.goalscroll.app;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GoalScroll/GoalScroll.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"GoalScroll/Preview Content\"";
+				DEVELOPMENT_TEAM = HPCP7LQ7G4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoalScroll/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GoalScroll;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSCameraUsageDescription = "GoalScroll needs camera access to capture proof photos for your habits.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "GoalScroll needs photo library access to upload screenshots as proof.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		800000000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 869C15CE2F363D2F00E87483 /* Secrets.xcconfig */;
+			buildSettings = {
+				APP_BUNDLE_ID = com.goalscroll.app;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GoalScroll/GoalScroll.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"GoalScroll/Preview Content\"";
+				DEVELOPMENT_TEAM = HPCP7LQ7G4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoalScroll/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GoalScroll;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSCameraUsageDescription = "GoalScroll needs camera access to capture proof photos for your habits.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "GoalScroll needs photo library access to upload screenshots as proof.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		800000000000000000000005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				APP_BUNDLE_ID = com.goalscroll.app;
+				CODE_SIGN_ENTITLEMENTS = GoalScrollShield/GoalScrollShield.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HPCP7LQ7G4;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = GoalScrollShield/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).GoalScrollShield";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		800000000000000000000006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				APP_BUNDLE_ID = com.goalscroll.app;
+				CODE_SIGN_ENTITLEMENTS = GoalScrollShield/GoalScrollShield.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HPCP7LQ7G4;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = GoalScrollShield/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).GoalScrollShield";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		910000000000000000000013 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				APP_BUNDLE_ID = com.goalscroll.app;
+				CODE_SIGN_ENTITLEMENTS = GoalScrollMonitor/GoalScrollMonitor.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HPCP7LQ7G4;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = GoalScrollMonitor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).GoalScrollMonitor";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		910000000000000000000014 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				APP_BUNDLE_ID = com.goalscroll.app;
+				CODE_SIGN_ENTITLEMENTS = GoalScrollMonitor/GoalScrollMonitor.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HPCP7LQ7G4;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = GoalScrollMonitor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).GoalScrollMonitor";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		600000000000000000000001 /* Build configuration list for PBXNativeTarget "GoalScroll" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				800000000000000000000003 /* Debug */,
+				800000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		600000000000000000000002 /* Build configuration list for PBXProject "GoalScroll" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				800000000000000000000001 /* Debug */,
+				800000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		600000000000000000000003 /* Build configuration list for PBXNativeTarget "GoalScrollShield" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				800000000000000000000005 /* Debug */,
+				800000000000000000000006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		910000000000000000000010 /* Build configuration list for PBXNativeTarget "GoalScrollMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				910000000000000000000013 /* Debug */,
+				910000000000000000000014 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		869C15C72F3636C600E87483 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+		869C15D02F3636C600E87483 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 869C15C72F3636C600E87483 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+		869C15C82F3636C600E87483 /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 869C15C72F3636C600E87483 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		869C15CA2F3636C600E87483 /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 869C15C72F3636C600E87483 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		869C15CC2F3636C600E87483 /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 869C15C72F3636C600E87483 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 700000000000000000000001 /* Project object */;
+}

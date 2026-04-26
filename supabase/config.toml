@@ -1,0 +1,31 @@
+# Supabase CLI configuration for GoalScroll
+# Reference: https://supabase.com/docs/reference/cli/config
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public"]
+
+[db]
+port = 54322
+
+[studio]
+enabled = true
+port = 54323
+
+[auth]
+enabled = true
+site_url = "goalscroll://auth-callback"
+
+[auth.external.apple]
+enabled = false
+
+# Edge Functions configuration
+[functions.suggestions]
+verify_jwt = false
+
+[functions.verify]
+verify_jwt = false
+
+[functions.delete-account]
+verify_jwt = false
