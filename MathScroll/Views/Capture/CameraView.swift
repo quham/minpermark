@@ -70,20 +70,20 @@ struct CameraView: View {
                             Text("Start now")
                                 .font(.system(size: 18, weight: .semibold))
                                 .foregroundColor(.white)
-                                .padding(.horizontal, AppSpacing.xl)
-                                .padding(.vertical, AppSpacing.sm)
-                                .background(AppColors.primary)
-                                .cornerRadius(AppCornerRadius.large)
+                                .padding(.horizontal, 28)
+                                .padding(.vertical, 8)
+                                .background(Theme.accent)
+                                .cornerRadius(Theme.cornerLarge)
                         }
                     } else {
                         Button(action: finishCheckIn) {
                             Text(isProcessing ? "Processing..." : "Done")
                                 .font(.system(size: 18, weight: .semibold))
                                 .foregroundColor(.white)
-                                .padding(.horizontal, AppSpacing.xl)
-                                .padding(.vertical, AppSpacing.sm)
-                                .background(isProcessing ? AppColors.primary.opacity(0.4) : AppColors.primary)
-                                .cornerRadius(AppCornerRadius.large)
+                                .padding(.horizontal, 28)
+                                .padding(.vertical, 8)
+                                .background(isProcessing ? Theme.accent.opacity(0.4) : Theme.accent)
+                                .cornerRadius(Theme.cornerLarge)
                         }
                         .disabled(isProcessing)
                     }
@@ -99,18 +99,18 @@ struct CameraView: View {
                         Text(elapsedText)
                             .font(.system(size: 18, weight: .semibold, design: .monospaced))
                             .foregroundColor(.black)
-                            .padding(.horizontal, AppSpacing.md)
-                            .padding(.vertical, AppSpacing.xxxs)
+                            .padding(.horizontal, Theme.pad)
+                            .padding(.vertical, 4)
                             .background(Color.white)
-                            .cornerRadius(AppCornerRadius.large)
+                            .cornerRadius(Theme.cornerLarge)
                             .overlay(
-                                RoundedRectangle(cornerRadius: AppCornerRadius.large)
+                                RoundedRectangle(cornerRadius: Theme.cornerLarge)
                                     .stroke(Color.black.opacity(0.15), lineWidth: 1)
                             )
                     }
                 }
                 .frame(width: previewWidth)
-                .padding(.bottom, AppSpacing.lg)
+                .padding(.bottom, Theme.padLarge)
             }
         }
         .onAppear {

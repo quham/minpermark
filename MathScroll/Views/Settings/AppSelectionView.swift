@@ -14,95 +14,90 @@ struct AppSelectionView: View {
     var body: some View {
         @Bindable var screenTimeManager = screenTimeManager
         NavigationStack {
-            ZStack {
-                GradientBackgroundView()
+            ScrollView {
+                VStack(spacing: Theme.padLarge) {
+                    // Header explanation
+                    VStack(spacing: Theme.pad) {
+                        Image(systemName: "hourglass.circle.fill")
+                            .font(.system(size: 56))
+                            .foregroundColor(Theme.accent)
 
-                ScrollView {
-                    VStack(spacing: AppSpacing.lg) {
-                        // Header explanation
-                        VStack(spacing: AppSpacing.sm) {
-                            Image(systemName: "hourglass.circle.fill")
-                                .font(.system(size: 56))
-                                .foregroundColor(AppColors.primary)
+                        Text("Choose Apps to Block")
+                            .font(.mathTitle)
 
-                            Text("Choose Apps to Block")
-                                .font(AppTypography.title)
-                                .foregroundColor(AppColors.textPrimary)
-
-                            Text("Select apps and categories that distract you. They'll be blocked until you earn unlock time.")
-                                .font(AppTypography.body)
-                                .foregroundColor(AppColors.textSecondary)
-                                .multilineTextAlignment(.center)
-                        }
-                        .padding(.top, AppSpacing.xl)
-                        .padding(.horizontal, AppSpacing.lg)
-
-                        // Current selection summary
-                        if screenTimeManager.hasSelection {
-                            SelectionSummaryCard(
-                                appCount: screenTimeManager.selectedAppCount,
-                                categoryCount: screenTimeManager.selectedCategoryCount
-                            )
-                            .padding(.horizontal, AppSpacing.lg)
-                        }
-
-                        // Select apps button
-                        Button(action: { isPickerPresented = true }) {
-                            HStack {
-                                Image(systemName: "apps.iphone")
-                                    .font(.system(size: 20))
-                                Text(screenTimeManager.hasSelection ? "Change Selection" : "Select Apps & Categories")
-                                    .font(AppTypography.headline)
-                                Spacer()
-                                Image(systemName: "chevron.right")
-                                    .font(.system(size: 14, weight: .medium))
-                            }
-                            .foregroundColor(AppColors.primary)
-                            .padding(AppSpacing.md)
-                            .background(
-                                RoundedRectangle(cornerRadius: AppCornerRadius.medium)
-                                    .fill(AppColors.primary.opacity(0.1))
-                            )
-                        }
-                        .padding(.horizontal, AppSpacing.lg)
-
-                        // Blocking status
-                        if screenTimeManager.hasSelection {
-                            BlockingStatusCard(
-                                isBlocking: screenTimeManager.isBlocking,
-                                unlockExpiryDate: screenTimeManager.unlockExpiryDate
-                            )
-                            .padding(.horizontal, AppSpacing.lg)
-                        }
-
-                        // Info cards
-                        VStack(spacing: AppSpacing.md) {
-                            InfoCard(
-                                icon: "lock.shield",
-                                title: "How it works",
-                                description: "Selected apps will be blocked. Complete your habits to earn minutes, then use those minutes to unlock apps temporarily."
-                            )
-
-                            InfoCard(
-                                icon: "hand.raised",
-                                title: "Stay in control",
-                                description: "Change your selection any time. Unlocking only happens from Home with earned minutes."
-                            )
-                        }
-                        .padding(.horizontal, AppSpacing.lg)
-
-                        // Clear selection button
-                        if screenTimeManager.hasSelection {
-                            Button(action: { screenTimeManager.clearSelection() }) {
-                                Text("Clear Selection")
-                                    .font(AppTypography.subheadline)
-                                    .foregroundColor(AppColors.error)
-                            }
-                            .padding(.top, AppSpacing.md)
-                        }
-
-                        Spacer().frame(height: AppSpacing.xxl)
+                        Text("Select apps and categories that distract you. They'll be blocked until you earn unlock time.")
+                            .font(.mathBody)
+                            .foregroundColor(.secondary)
+                            .multilineTextAlignment(.center)
                     }
+                    .padding(.top, Theme.padLarge)
+                    .padding(.horizontal, Theme.padLarge)
+
+                    // Current selection summary
+                    if screenTimeManager.hasSelection {
+                        SelectionSummaryCard(
+                            appCount: screenTimeManager.selectedAppCount,
+                            categoryCount: screenTimeManager.selectedCategoryCount
+                        )
+                        .padding(.horizontal, Theme.padLarge)
+                    }
+
+                    // Select apps button
+                    Button(action: { isPickerPresented = true }) {
+                        HStack {
+                            Image(systemName: "apps.iphone")
+                                .font(.system(size: 20))
+                            Text(screenTimeManager.hasSelection ? "Change Selection" : "Select Apps & Categories")
+                                .font(.mathBody.weight(.semibold))
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 14, weight: .medium))
+                        }
+                        .foregroundColor(Theme.accent)
+                        .padding(Theme.pad)
+                        .background(
+                            RoundedRectangle(cornerRadius: Theme.cornerMedium)
+                                .fill(Theme.accent.opacity(0.1))
+                        )
+                    }
+                    .padding(.horizontal, Theme.padLarge)
+
+                    // Blocking status
+                    if screenTimeManager.hasSelection {
+                        BlockingStatusCard(
+                            isBlocking: screenTimeManager.isBlocking,
+                            unlockExpiryDate: screenTimeManager.unlockExpiryDate
+                        )
+                        .padding(.horizontal, Theme.padLarge)
+                    }
+
+                    // Info cards
+                    VStack(spacing: Theme.pad) {
+                        InfoCard(
+                            icon: "lock.shield",
+                            title: "How it works",
+                            description: "Selected apps will be blocked. Complete your habits to earn minutes, then use those minutes to unlock apps temporarily."
+                        )
+
+                        InfoCard(
+                            icon: "hand.raised",
+                            title: "Stay in control",
+                            description: "Change your selection any time. Unlocking only happens from Home with earned minutes."
+                        )
+                    }
+                    .padding(.horizontal, Theme.padLarge)
+
+                    // Clear selection button
+                    if screenTimeManager.hasSelection {
+                        Button(action: { screenTimeManager.clearSelection() }) {
+                            Text("Clear Selection")
+                                .font(.mathBody)
+                                .foregroundColor(.red)
+                        }
+                        .padding(.top, Theme.pad)
+                    }
+
+                    Spacer().frame(height: Theme.padLarge * 2)
                 }
             }
             .navigationTitle("App Blocking")
@@ -132,35 +127,35 @@ struct SelectionSummaryCard: View {
     let categoryCount: Int
 
     var body: some View {
-        HStack(spacing: AppSpacing.lg) {
-            VStack(spacing: AppSpacing.xxs) {
+        HStack(spacing: Theme.padLarge) {
+            VStack(spacing: 4) {
                 Text("\(appCount)")
                     .font(.system(size: 32, weight: .bold, design: .rounded))
-                    .foregroundColor(AppColors.primary)
+                    .foregroundColor(Theme.accent)
                 Text("Apps")
-                    .font(AppTypography.caption)
-                    .foregroundColor(AppColors.textSecondary)
+                    .font(.mathBody)
+                    .foregroundColor(.secondary)
             }
             .frame(maxWidth: .infinity)
 
             Divider()
                 .frame(height: 40)
 
-            VStack(spacing: AppSpacing.xxs) {
+            VStack(spacing: 4) {
                 Text("\(categoryCount)")
                     .font(.system(size: 32, weight: .bold, design: .rounded))
-                    .foregroundColor(AppColors.primary)
+                    .foregroundColor(Theme.accent)
                 Text("Categories")
-                    .font(AppTypography.caption)
-                    .foregroundColor(AppColors.textSecondary)
+                    .font(.mathBody)
+                    .foregroundColor(.secondary)
             }
             .frame(maxWidth: .infinity)
         }
-        .padding(AppSpacing.md)
+        .padding(Theme.pad)
         .background(
-            RoundedRectangle(cornerRadius: AppCornerRadius.medium)
-                .fill(Color.white)
-                .shadow(color: AppColors.shadowColor, radius: 4, x: 0, y: 2)
+            RoundedRectangle(cornerRadius: Theme.cornerMedium)
+                .fill(Color(uiColor: .systemBackground))
+                .shadow(radius: 4, y: 2)
         )
     }
 }
@@ -177,12 +172,8 @@ struct BlockingStatusCard: View {
     }
 
     private var statusTitle: String {
-        if isBlocking {
-            return "Blocking Active"
-        }
-        if isUnlockActive {
-            return "Blocking Paused"
-        }
+        if isBlocking { return "Blocking Active" }
+        if isUnlockActive { return "Blocking Paused" }
         return "Blocking Off"
     }
 
@@ -201,28 +192,27 @@ struct BlockingStatusCard: View {
 
     var body: some View {
         HStack {
-            VStack(alignment: .leading, spacing: AppSpacing.xxs) {
-                HStack(spacing: AppSpacing.xs) {
+            VStack(alignment: .leading, spacing: 4) {
+                HStack(spacing: 8) {
                     Circle()
-                        .fill(isBlocking ? AppColors.success : AppColors.textMuted)
+                        .fill(isBlocking ? Theme.success : Color.secondary)
                         .frame(width: 8, height: 8)
                     Text(statusTitle)
-                        .font(AppTypography.headline)
-                        .foregroundColor(AppColors.textPrimary)
+                        .font(.mathBody.weight(.semibold))
                 }
 
                 statusDescription
-                    .font(AppTypography.caption)
-                    .foregroundColor(AppColors.textSecondary)
+                    .font(.mathBody)
+                    .foregroundColor(.secondary)
             }
 
             Spacer()
         }
-        .padding(AppSpacing.md)
+        .padding(Theme.pad)
         .background(
-            RoundedRectangle(cornerRadius: AppCornerRadius.medium)
-                .fill(Color.white)
-                .shadow(color: AppColors.shadowColor, radius: 4, x: 0, y: 2)
+            RoundedRectangle(cornerRadius: Theme.cornerMedium)
+                .fill(Color(uiColor: .systemBackground))
+                .shadow(radius: 4, y: 2)
         )
     }
 }
@@ -235,27 +225,26 @@ struct InfoCard: View {
     let description: String
 
     var body: some View {
-        HStack(alignment: .top, spacing: AppSpacing.md) {
+        HStack(alignment: .top, spacing: Theme.pad) {
             Image(systemName: icon)
                 .font(.system(size: 20))
-                .foregroundColor(AppColors.primary)
+                .foregroundColor(Theme.accent)
                 .frame(width: 32)
 
-            VStack(alignment: .leading, spacing: AppSpacing.xxs) {
+            VStack(alignment: .leading, spacing: 4) {
                 Text(title)
-                    .font(AppTypography.subheadline.weight(.medium))
-                    .foregroundColor(AppColors.textPrimary)
+                    .font(.mathBody.weight(.semibold))
 
                 Text(description)
-                    .font(AppTypography.caption)
-                    .foregroundColor(AppColors.textSecondary)
+                    .font(.mathBody)
+                    .foregroundColor(.secondary)
             }
         }
-        .padding(AppSpacing.md)
+        .padding(Theme.pad)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(
-            RoundedRectangle(cornerRadius: AppCornerRadius.medium)
-                .fill(AppColors.inputBackground)
+            RoundedRectangle(cornerRadius: Theme.cornerMedium)
+                .fill(Color(uiColor: .secondarySystemBackground))
         )
     }
 }
@@ -269,32 +258,27 @@ struct AppSelectionView: View {
 
     var body: some View {
         NavigationStack {
-            ZStack {
-                GradientBackgroundView()
+            VStack(spacing: Theme.padLarge) {
+                Image(systemName: "exclamationmark.triangle")
+                    .font(.system(size: 56))
+                    .foregroundColor(Theme.warning)
 
-                VStack(spacing: AppSpacing.lg) {
-                    Image(systemName: "exclamationmark.triangle")
-                        .font(.system(size: 56))
-                        .foregroundColor(AppColors.warning)
+                Text("Screen Time Not Available")
+                    .font(.mathTitle)
 
-                    Text("Screen Time Not Available")
-                        .font(AppTypography.title)
-                        .foregroundColor(AppColors.textPrimary)
+                Text("App blocking requires Screen Time capabilities which are not available on this device or simulator.")
+                    .font(.mathBody)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, Theme.padLarge * 2)
 
-                    Text("App blocking requires Screen Time capabilities which are not available on this device or simulator.")
-                        .font(AppTypography.body)
-                        .foregroundColor(AppColors.textSecondary)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, AppSpacing.xl)
-
-                    Text("The app will use reminders and timers instead.")
-                        .font(AppTypography.subheadline)
-                        .foregroundColor(AppColors.textMuted)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, AppSpacing.xl)
-                }
-                .padding()
+                Text("The app will use reminders and timers instead.")
+                    .font(.mathBody)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, Theme.padLarge * 2)
             }
+            .padding()
             .navigationTitle("App Blocking")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
