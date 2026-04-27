@@ -1,77 +1,49 @@
-import SwiftUI
+import Foundation
 import SwiftData
 
 @MainActor
 @Observable
-class StatsStore {
-    private var modelContext: ModelContext
-    private(set) var stats: UserStats?
+final class StatsStore {
+    private let context: ModelContext
+    init(context: ModelContext) { self.context = context }
 
-    init(modelContext: ModelContext) {
-        self.modelContext = modelContext
-        loadOrCreateStats()
-    }
-
-    private func loadOrCreateStats() {
-        let descriptor = FetchDescriptor<UserStats>()
-
-        do {
-            let existingStats = try modelContext.fetch(descriptor)
-            if let existing = existingStats.first {
-                existing.resetForNewDay()
-                stats = existing
-            } else {
-                let newStats = UserStats()
-                modelContext.insert(newStats)
-                modelContext.safeSave()
-                stats = newStats
-            }
-        } catch {
-            Log.data.error("Failed to load stats: \(error.localizedDescription)")
-            let newStats = UserStats()
-            modelContext.insert(newStats)
-            modelContext.safeSave()
-            stats = newStats
+    func apply(attempt: QuestionAttempt, totalMarks: Int) {
+        let pct = totalMarks == 0 ? 0 : Double(attempt.marksAwarded) / Double(totalMarks)
+        for tag in attempt.skillsCorrect {
+            updateStat(tag: tag, kind: .skill, scored: totalMarks, possible: totalMarks, sessionPct: pct)
         }
+        for tag in attempt.skillsIncorrect {
+            updateStat(tag: tag, kind: .skill, scored: 0, possible: totalMarks, sessionPct: pct)
+        }
+        try? context.save()
     }
 
-    func addMinutes(_ minutes: Int) {
-        stats?.addMinutes(minutes)
-        modelContext.safeSave()
+    private func updateStat(tag: String, kind: SkillStatKind, scored: Int, possible: Int, sessionPct: Double) {
+        let key = "\(kind.rawValue):\(tag)"
+        let existing = try? context.fetch(FetchDescriptor<SkillStat>(
+            predicate: #Predicate<SkillStat> { $0.compositeKey == key }
+        )).first
+        let stat = existing ?? {
+            let s = SkillStat(tag: tag, kind: kind)
+            context.insert(s)
+            return s
+        }()
+        stat.attemptsCount += 1
+        stat.marksScored += scored
+        stat.marksPossible += possible
+        let alpha = 0.4
+        stat.recencyWeightedPct = stat.attemptsCount == 1
+            ? sessionPct * 100
+            : (1 - alpha) * stat.recencyWeightedPct + alpha * sessionPct * 100
+        stat.lastAttemptedAt = .now
     }
 
-    func deductMinutes(_ minutes: Int) {
-        stats?.deductMinutes(minutes)
-        modelContext.safeSave()
-    }
-
-    func setAnchorGoal(_ goalID: UUID?) {
-        stats?.anchorGoalID = goalID
-        modelContext.safeSave()
-    }
-
-    var todayMinutes: Int {
-        stats?.todayMinutesEarned ?? 0
-    }
-
-    var lifetimeMinutes: Int {
-        stats?.lifetimeMinutesEarned ?? 0
-    }
-
-    var currentStreak: Int {
-        stats?.currentStreakDays ?? 0
-    }
-
-    var dailyTarget: Int {
-        stats?.dailyMinutesTarget ?? Constants.Defaults.dailyMinutesTarget
-    }
-
-    func setDailyTarget(_ target: Int) {
-        stats?.dailyMinutesTarget = target
-        try? modelContext.save()
-    }
-
-    var progress: Double {
-        stats?.progressPercentage ?? 0
+    func weaknessRanking(limit: Int) -> [SkillStat] {
+        let descriptor = FetchDescriptor<SkillStat>(
+            predicate: #Predicate<SkillStat> { $0.attemptsCount >= 1 },
+            sortBy: [SortDescriptor(\.recencyWeightedPct, order: .forward)]
+        )
+        let all = (try? context.fetch(descriptor)) ?? []
+        return Array(all.prefix(limit))
     }
 }
