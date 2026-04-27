@@ -26,7 +26,7 @@ struct SubmitAnswerView: View {
         }
         .padding()
         .sheet(isPresented: $showingCamera) {
-            CameraSheet { data in
+            CameraView { data in
                 capturedImage = data
                 showingCamera = false
             }

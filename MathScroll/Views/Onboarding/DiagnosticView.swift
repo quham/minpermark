@@ -53,7 +53,7 @@ struct DiagnosticView: View {
         }
         .padding()
         .sheet(isPresented: $showingCamera) {
-            CameraSheet { data in capturedImage = data; showingCamera = false }
+            CameraView { data in capturedImage = data; showingCamera = false }
         }
     }
 
