@@ -99,6 +99,12 @@ struct HomeView: View {
             profile.freeQuestionUsed = true
             try? modelContext.save()
             session.markCompleted()
+            if let userId = SupabaseManager.shared.userId {
+                try? await SyncManager.shared.push(attempt: attempt, userId: userId)
+                for s in stats.weaknessRanking(limit: 200) {
+                    try? await SyncManager.shared.push(skillStat: s, userId: userId)
+                }
+            }
         }
     }
 }
